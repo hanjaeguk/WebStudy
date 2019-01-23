@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var score = 100;
+		var grade = "";
+		if(score >= 90){
+			grade = "A";					
+		}else if(score >= 80){
+			grade = "B";				
+		}else if(score >= 70){
+			grade = "C";				
+		}else{
+			grade = "F";
+		}
+		if(score >= 70 && score%10 >= 5 || score == 100){
+			grade += "+";
+		}
+			console.log(score+":"+grade);
+		
+		/*
+		var score2 = 78;
+		switch(parseInt(score2/78)){
+			case 10: case 9: console.log("A학점 입니다.");
+			break;
+			case 8: console.log("B학점 입니다.");
+			break;
+			case 7: console.log("C학점 입니다.");
+			break;
+			case 9: console.log("F학점 입니다.");
+		}
+		*/
+		
+	</script>
+</body>
+</html>

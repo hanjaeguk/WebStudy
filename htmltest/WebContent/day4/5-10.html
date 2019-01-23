@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+	[title]{color: magenta; font-weight: bold;}
+	[title="two"]{border: 2px solid green;}
+	p[title="two"]{background: lightgray;}
+	p[title~="second"]{background: cyan;}
+	p[class^="second"]{background: pink;}
+	p[class*="wrap"]{background: yellow;}
+	div[class$="three"]{background: green;}
+	</style>
+</head>
+<body>1111
+	<div title = "one">selector [attribute name]</div>
+	<div title = "two">selector [attribute name = value]</div>
+	<p title = "two">selector [attribute name = value]</p>
+	<p title = "first second thrid">selector [attribute name ~= value]</p>
+	<p class = "second-container">selector [attribute name ^= value]</p>
+	<p class = "second=wrap">selector [attribute name $= value]</p>
+	<div class = "one-two-three">selector [attribute name |= value]</div>
+</body>
+</html>

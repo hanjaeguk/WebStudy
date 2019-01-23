@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function winclose(){
+			var msg = document.getElementById("msg").value;
+			opener.document.getElementById("view").innerHTML = "<font color = 'blue' size = '15'>" + msg +'</font>';
+			
+			self.close();
+		}
+	</script>
+
+</head>
+<body>
+a
+<br>a
+<br>a
+<br>a
+<br>a
+<br>a
+<br>a
+<br>
+<input type = "text" id = "msg">
+<input type = "button" value = "닫기" onclick = "javascript:winclose();">
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		table {
+		text-align:center;
+		width: 600px;
+		height: 200px;
+		border: darkgrey 1px solid;
+		}
+		th,td {
+		text-align:center;
+		border: darkgrey 1px solid;
+		}
+	</style>
+
+</head>
+<body>
+	<form name="formtest" method="GET/POST" action="URI">
+		<h2 align="center">form contorl test</h2>
+		<table align="center">
+			<tr>
+				<th width = "200">이름</th>
+				<td><input type="text" id="name" name="name" size="15" placeholder="이름입력"></td>
+			</tr>
+	
+			<tr>
+				<th>아이디</th>
+				<td><input type="text" id="userid" name="userid" size="15" placeholder="ID입력">
+					<input type="submit" value="중복확인">
+				</td>
+			</tr>
+			
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password" id="pw" name="pw" size="15" placeholder="비밀번호입력"></td>
+			</tr>
+			
+			<tr>
+				<th>비밀번호 확인</th>
+				<td><input type="password" id="pw" name="pw" size="15" placeholder="비밀번호 확인"></td>
+			</tr>
+			
+			<tr>
+				<th>이메일</th>
+				<td><input type="text"id="emailhead" name="emailhead" size="15" placeholder="이메일 입력">@
+					<select name = "email">
+						<option value = "선택">선택</option>
+						<option value = "naver.com">네이버</option>
+						<option value = "daum.com">다음</option>
+						<option value = "google.com">구글</option>
+						<option value = "other">직접입력</option>
+						</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>성별</th>
+				<td><input type="radio" name="gender" value="m">남
+					<input type="radio" name="gender" value="m">여
+				</td>
+			</tr>
+			
+			<tr>
+				<th colspan = "2">좋아하는 과일</th>
+			</tr>
+			
+			<tr>
+				<th colspan = "2">
+				<input type="radio" name="fruit" value="apple">사과
+				<input type="radio" name="fruit" value="watermelon">수박
+				<input type="radio" name="fruit" value="strawberry">딸기
+				<input type="radio" name="fruit" value="grape">포도
+				</th>
+			</tr>
+			
+			<tr>
+				<th>연락처</th>
+				<td>
+					<select name = "tel1">
+						<option value = "010">010
+						<option value = "02" selected = "selected">02
+						<option value = "031">031
+						<option value = "041">041
+						<option value = "061">061
+						<option value = "051">051
+					</select>
+					-
+					<input type = "tel" name = "tel2" size = "4" maxlength = "4">
+					-
+					<input type = "tel" name = "tel3" size = "4" maxlength = "4">
+				</td>
+			</tr>
+			
+			<tr>
+				<th colspan = "2">
+				<input type="submit" value = "회원가입">
+				<input type="reset" value = "초기화">
+				</th>
+			</tr>
+			
+			
+		</table>
+	</form>
+</body>
+</html>
