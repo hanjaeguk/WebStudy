@@ -32,7 +32,7 @@ public class DBCounter extends HttpServlet {
 		maxLength = 8;
 //		1.Driver Loading
 		try {
-			Class.forName("oracle.jdbc.driver.OracelDriver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -90,14 +90,6 @@ public class DBCounter extends HttpServlet {
 				}
 				
 			}
-			
-			
-			
-			
-
-		
-		
-		
 		
 		cnt++;
 		String cntStr = cnt +"";

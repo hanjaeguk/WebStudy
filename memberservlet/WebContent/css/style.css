@@ -33,10 +33,19 @@ html{
   background-color: #ffffff;
 }
 
+.box1{
+	width: 343px;  /*343px*/
+  	height: 800px;
+}
+
+.box2{
+	width: 343px;  /*343px*/
+	height: 400px;
+}
+
 .testbox {
   margin: 20px auto;
-  width: 343px;  /*343px*/
-  height: 800px; 
+ 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
@@ -88,14 +97,14 @@ input[type=text],input[type=password]{
   width: 54px; 
   height: 30px; 
 }
-#email1{
+#emailid{
    width: 80px;  
 }
-#email2{ 
+#emaildomain{ 
   height: 39px; 
 }
 
-#zip{
+#zipcode{
   width: 60px; 
   height: 39px; 
 }
