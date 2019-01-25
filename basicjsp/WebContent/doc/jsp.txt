@@ -1,0 +1,86 @@
+* JSP(Java Server Page)
+	- language
+	- compile 기반 : Servlet		,실행속도가 빠르다., 코딩이어렵다
+	- script 기반  : PHP,ASP		,실행속도가 느리다.(컴퍼일에 비해 상대적으로), 코딩이쉽다(상대적으로)
+	JSP : 코딩시에는 script기반, 실행시에는 complie!!
+
+--Script 요소
+	형식) <% java code %>
+	
+	
+1. 선언문 : page전역에서 사용 할 변수,메소드를 선언하는 영역(java의 전역영역)
+		형식) <%! 변수 메소드 %>
+	ex)
+		<%!
+		String name;
+		public int plus(int x, int y){
+			return x+y;
+		}
+		%!>
+2. 처리문: client 호출시 매번 실행되는 영역(servlet의 service method 안) 여러번 가능
+			request,response 관련 작업
+		형식) <% request,response logic %>
+	ex)
+	<%
+	name = request.getParameter("name");
+	
+	DB작업
+	
+	out.print(name);
+	%>
+	<html code>
+	<%
+	out.print(plus(2,5));
+	%>
+
+3. 출력문: client 출력내용에 포함
+		형식) <%= 문자열 %>
+	ex)
+	<%= name %> = <%(out.print(name);%> 과 같은말!
+	
+public class ServletName extends HttpServlet{
+	
+	//선언(변수,메소드)
+	
+	//service method
+	public void service(request,response){
+	
+	}
+	
+}
+
+
+**jsp directive(지시문) : <%@ kind 속성1 = "값1" 속성2 = "값2" ...속성n = "값n" %>
+- page
+<%@ kind 속성1 = "값1" 속성2 = "값2" ...속성n = "값n" %> **pdf참조
+
+- include
+<%@ include file = "file path" %>
+
+- taglib
+<%@ kind taglib prefix ="값" uri="URI" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

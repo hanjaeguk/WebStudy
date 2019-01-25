@@ -12,17 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/hs")
 public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	String name;
+	public void init() {
+		name="한재국";
+	}
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
-		out.println("	<body>");
-		out.println("		<div align = \"center\">");
-		out.println("			Hello~~~<br>");
-		out.println("			안녕서블릿!!!");
-		out.println("		</div>");
-		out.println("	</body>");
+		out.println("<body>");
+		out.println("<div align = \"center\">");
+		out.println("Hello~~~<br>");
+		out.println("안녕"+name+"!!!");
+		out.println("</div>");
+		out.println("</body>");
 		out.println("</html>");
 		
 	}
