@@ -2,9 +2,13 @@ package com.kitri.member.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 import com.kitri.member.model.MemberDetailDto;
 import com.kitri.member.model.MemberDto;
@@ -16,12 +20,76 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int idCheck(String id) {
-		return 0;
+		int cnt = 0; // 존재X 사용가능
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn=DBConnection.makeConnection();
+			String sql = "select id \r\n" + 
+						"from member\r\n" + 
+						"where id=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				cnt = 1; //존재!
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return cnt;
 	}
 
 	@Override
 	public List<ZipCodeDto> zipSearch(String doro) {
-		return null;
+		List<ZipCodeDto> list = new ArrayList<ZipCodeDto>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			String sql = "select 	new_post_code zipcode, sido_kor sido, gugun_kor gugun, \r\n" + 
+					"		nvl(upmyon_kor, ' ') upmyon, doro_kor doro, \r\n" + 
+					"		case when building_refer_number != '0'\r\n" + 
+					"			then building_origin_number||'-'||building_refer_number \r\n" + 
+					"			else trim(to_char(building_origin_number, '99999'))\r\n" + 
+					"		end building_number, nvl(sigugun_building_name,' ') sigugun_building_name\r\n" + 
+					"from 	postcode\r\n" + 
+					"where 	doro_kor like '%'||?||'%'\r\n" + 
+					"or 		sigugun_building_name like '%'||?||'%'\r\n";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, doro);
+			pstmt.setString(2, doro);
+			
+			rs = pstmt.executeQuery();
+//			ZipCodeDto zipCodeDto = new ZipCodeDto(); <- 이렇게하면 마지막검색값만 여러개 검색된다.
+			while(rs.next()) {
+				ZipCodeDto zipCodeDto = new ZipCodeDto();
+				zipCodeDto.setZipcode(rs.getString("zipcode"));
+				zipCodeDto.setSido(rs.getString("sido"));
+				zipCodeDto.setGugun(rs.getString("gugun"));
+				zipCodeDto.setUpmyon(rs.getString("upmyon"));
+				zipCodeDto.setDoro(rs.getString("doro"));
+				zipCodeDto.setBuilding_number(rs.getString("building_number"));
+				zipCodeDto.setSigugun_building_name(rs.getString("sigugun_building_name"));
+				
+				list.add(zipCodeDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt, rs);
+		}
+		
+		
+		return list;
 	}
 
 	@Override

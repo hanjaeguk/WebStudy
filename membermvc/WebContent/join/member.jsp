@@ -35,11 +35,11 @@ String root = request.getContextPath();
 			
 				
 			function openzip(){
-				window.open("","","top=200, left=300, width=400, height=300, menubar=no, status=no, toolbar=no, location=no, scrollbars=yes");
+				window.open("<%=root%>/user?act=mvzip","zip","top=200, left=300, width=400, height=500, menubar=no, status=no, toolbar=no, location=no, scrollbars=yes");
 			}
 			
 			function openidcheck(){
-				window.open("","","top=200, left=300, width=400, height=180, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+				window.open("<%=root%>/user?act=mvidcheck","idcheck","top=200, left=300, width=400, height=350, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 			}
 		</script>
 	</head>
@@ -55,7 +55,7 @@ String root = request.getContextPath();
 		필수입력<br>
 		<input type="text" name="name" id="name" value="" size="12" placeholder="Name"  required/>
 		<input type="text" name="id" id="id" value="" size="12" placeholder="ID"  required/>
-		<input type="button" value="아이디중복검사">
+		<input type="button" value="아이디중복검사" onclick="javascript:openidcheck();">
 	<!--    &nbsp;&nbsp;<font color="#3cb371">4~12</font>자이내 영문이나 숫자(영문은 대소문자를 구별하므로 주의해주세요</td>-->
 		<input type="password" name="pass" id="pass" size="12" maxlength="12" placeholder="Password"  required/>
 	<!--	&nbsp;&nbsp;<font color="#3cb371">6~12</font>자리의 영문(대소문자 구별)이나 숫자	-->
@@ -86,9 +86,9 @@ String root = request.getContextPath();
 	    </select>
 	    <hr>
 	    <div class="choice">선택입력 <br>
-		    <input type="text" name="zipcode" id="zipcode" value="" maxlength="5">&nbsp;&nbsp;
-		    <input type="button" value="우편번호검색">   
-		    <input type="text" name="address" id= "address" value="" placeholder="Address" />
+		    <input type="text" name="zipcode" id="zipcode" value="" maxlength="5" readonly="readonly">&nbsp;&nbsp;
+		    <input type="button" value="우편번호검색" onclick="javascript:openzip();">   
+		    <input type="text" name="address" id= "address" value="" placeholder="Address" readonly="readonly"/>
 		    <input type="text" name="address_detail" id="address_detail" size="100" placeholder="Address2" />    
 	    </div>
 	    <br>

@@ -17,12 +17,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int idCheck(String id) {
-		return 0;
+		return memberDao.idCheck(id);
 	}
 
 	@Override
 	public List<ZipCodeDto> zipSearch(String doro) {
-		return null;
+		return memberDao.zipSearch(doro);
 	}
 
 	@Override
