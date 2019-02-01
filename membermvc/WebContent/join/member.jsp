@@ -54,7 +54,7 @@ String root = request.getContextPath();
 		<div class="accounttype" align = "left">
 		필수입력<br>
 		<input type="text" name="name" id="name" value="" size="12" placeholder="Name"  required/>
-		<input type="text" name="id" id="id" value="" size="12" placeholder="ID"  required/>
+		<input type="text" name="id" id="id" value="" size="12" placeholder="ID"  required readonly="readonly"/>
 		<input type="button" value="아이디중복검사" onclick="javascript:openidcheck();">
 	<!--    &nbsp;&nbsp;<font color="#3cb371">4~12</font>자이내 영문이나 숫자(영문은 대소문자를 구별하므로 주의해주세요</td>-->
 		<input type="password" name="pass" id="pass" size="12" maxlength="12" placeholder="Password"  required/>

@@ -3,6 +3,7 @@ package com.kitri.member.model.service;
 import java.util.List;
 
 import com.kitri.member.model.MemberDetailDto;
+import com.kitri.member.model.MemberDto;
 import com.kitri.member.model.ZipCodeDto;
 
 public interface MemberService {
@@ -15,5 +16,5 @@ public interface MemberService {
 	int delete(String id); // 회원탈퇴
 	
 	
-	int login(String id,String pass);
+	MemberDto login(String id,String pass);
 }

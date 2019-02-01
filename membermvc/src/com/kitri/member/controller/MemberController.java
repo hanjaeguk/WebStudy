@@ -62,9 +62,10 @@ public class MemberController extends HttpServlet {
 			request.setAttribute("doro", doro);
 																//어차피 내꺼 안이라서 제일 앞에 root필요 없다.
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/join/zipsearch.jsp");
-			dispatcher.forward(request, response);
+			dispatcher.forward(request, response); // 값을 보내줌!
+			
 									//url이라 풀 경로가 필요!(포워딩이랑 이거 하나만 써야함)
-//			response.sendRedirect(root + "/join/zipsearch.jsp");
+//			response.sendRedirect(root + "/join/zipsearch.jsp"); //url만 보내줌!
 		}else if("register".equals(act)){
 	
 			MemberDetailDto memberDetailDto = new MemberDetailDto();
@@ -86,13 +87,25 @@ public class MemberController extends HttpServlet {
 			
 			response.sendRedirect(root + path);
 			
-		}else if("".equals(act)){
+		}else if("mvmodify".equals(act)){ //회원수정페이지로 이동
 			response.sendRedirect(root + "/login/login.jsp");
-		}else if("".equals(act)){
+		}else if("modify".equals(act)){
 			response.sendRedirect(root + "/login/login.jsp");
-		}else if("".equals(act)){
+		}else if("delete".equals(act)){
 			response.sendRedirect(root + "/login/login.jsp");
-		}else if("".equals(act)){
+		}else if("login".equals(act)){
+			String id = request.getParameter("id");
+			String pass = request.getParameter("pass");
+			
+			MemberDto memberDto = memberService.login(id, pass);
+			String path = memberDto != null ? "/login/loginok.jsp" : "/login/loginfail.jsp";
+			
+			request.setAttribute("userInfo", memberDto);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
+			
+		}else if("logout".equals(act)){
 			response.sendRedirect(root + "/login/login.jsp");
 		}
 		

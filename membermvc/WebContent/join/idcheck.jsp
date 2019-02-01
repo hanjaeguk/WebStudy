@@ -5,7 +5,6 @@
 String root = request.getContextPath();
 
 String id = (String)request.getAttribute("id");
-
 %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +58,7 @@ function iduse(id){
 
 					%>
 					<div>
-					<%=id%>는 사용할수 있습니다. 사용하시겠습니까?
+					<%=id%>는 사용할수 있습니다.<br>사용하시겠습니까?<br>
 					<input type="button" value="사용" onclick="javascript:iduse('<%=id%>');">
 					</div>
 					<%

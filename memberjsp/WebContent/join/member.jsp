@@ -24,7 +24,7 @@
 					alert("비밀번호확인!!")
 					return;			
 				}else{
-					document.getElementById("joinform").setAttribute("action","/memberjsp/join/register.jsp");
+					document.getElementById("joinform").setAttribute("action","/memberservlet/register");
 					document.getElementById("joinform").submit();
 				}
 			} 

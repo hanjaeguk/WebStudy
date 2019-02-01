@@ -1,8 +1,11 @@
 package com.kitri.member.model.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.kitri.member.model.MemberDetailDto;
+import com.kitri.member.model.MemberDto;
 import com.kitri.member.model.ZipCodeDto;
 import com.kitri.member.model.dao.MemberDao;
 import com.kitri.member.model.dao.MemberDaoImpl;
@@ -46,8 +49,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int login(String id, String pass) {
-		return 0;
+	public MemberDto login(String id, String pass) {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("userid", id);
+		map.put("userpass", pass);
+		return memberDao.login(map);
 	}
 
 }

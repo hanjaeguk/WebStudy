@@ -20,26 +20,41 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int idCheck(String id) {
-		int cnt = 0; // 존재X 사용가능
+		int cnt = 1; // 존재X 사용가능
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			conn=DBConnection.makeConnection();
-			String sql = "select id \r\n" + 
-						"from member\r\n" + 
-						"where id=?";
-			pstmt = conn.prepareStatement(sql);
+//			String sql = "select id \r\n" + 
+//						"from member\r\n" + 
+//						"where id=?";
+			//sql 문장이 길때 버퍼를 쓴다.
+			StringBuffer sql = new StringBuffer();
+//			sql.append("select id \r\n");
+//			sql.append("from member\r\n");
+//			sql.append("where id=?");
+			
+			sql.append("select count(id) \r\n");
+			sql.append("from member\r\n");
+			sql.append("where id=?");
+			
+			pstmt = conn.prepareStatement(sql.toString());
 			
 			pstmt.setString(1, id);
 			
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				cnt = 1; //존재!
-			}
+			rs.next();
+//			if(rs.next()) {
+//				cnt = 1; //존재!
+//			}
+			cnt = rs.getInt(1); // sql 문장을 카운트로해서 int를 받아내야함
 		} catch (SQLException e) {
+			cnt = 1; // 오류 발생시 아이디를 사용못하게!!
 			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt, rs);
 		}
 		
 		
@@ -155,7 +170,41 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public MemberDto login(Map<String, String> map) {
-		return null;
+		MemberDto memberDto = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn=DBConnection.makeConnection();
+
+			StringBuffer sql = new StringBuffer();
+
+			sql.append("select id, name, emailid, emaildomain \r\n");
+			sql.append("from member\r\n");
+			sql.append("where id = ? and pass = ?");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1, map.get("userid"));
+			pstmt.setString(2, map.get("userpass"));
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				memberDto = new MemberDto(); 
+				memberDto.setId(rs.getString("id"));
+				memberDto.setName(rs.getString("name"));
+				memberDto.setEmailId(rs.getString("emailid"));
+				memberDto.setEmailDomain(rs.getString("emaildomain"));
+			}
+
+		} catch (SQLException e) {
+			memberDto = null; // set에서 하나라도 예외가 나면!! 객체 안만들고 null해줘야함
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt, rs);
+		}
+		return memberDto;
 	}
 
 }
