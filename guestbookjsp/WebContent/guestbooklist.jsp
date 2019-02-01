@@ -12,7 +12,7 @@
 <body>
 	<div align="center">
 		<h3>글목록</h3>
-	
+			
 	</div>
 
 </body>

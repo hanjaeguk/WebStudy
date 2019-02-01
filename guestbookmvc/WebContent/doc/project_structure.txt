@@ -1,0 +1,10 @@
+com.kitri.guestbook.controller
+	- GuestbookController
+com.kitri.guestbook.model
+	- GuestbookDto
+com.kitri.guestbook.model.dao
+	GuestbookDao(I)
+	GuestbookDaoImpl
+com.kitri.guestbook.service
+	GuestbookService(I)
+	GuestbookImpl
