@@ -16,11 +16,22 @@ membermvc
 			MemberDao.java(I)
 			MemberDaoImpl.java
 			
+		- com.kitri.list.model  // 내가 쓴 글목록, 찜한 목록, 내 일정목록
+			ListDto.java(I)
+			ListDtoImpl.java
+		
+		- com.kitri.list.model.dao
+			ListDao.java(I)
+			ListDaoImpl.java
+		
 		
 		- com.kitri.util
 			DBConnection.java
 			DBClose.java
 		
+		
+		// 여행정보, 커뮤니티(글목록)은 비회원도 접근가능하게 하고
+			나머지는 이용시 로그인이 필요!
 		
 	- webContent
 		- doc
@@ -30,6 +41,16 @@ membermvc
 			- idcheck.jsp
 			- zipsearch.jsp
 			- register.jsp
-			- 
+			- registerok.jsp
+			- registerfail.jsp
 		- login
+			- login.jsp
+			- loginok.jsp
+			- loginfail.jsp
+			
+		- mymenu
+			- myaccountinfo.jsp
+			- mywritelist.jsp
+			- mylikelist.jsp
+			
 		- index.jsp
