@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="com.kitri.member.model.*"%>
 
 <%
+// 미완성 회원수정, 삭제 완성해야함!!!
 String root = request.getContextPath();
 MemberDetailDto memberDetailDto = (MemberDetailDto)session.getAttribute("userInfo");		
 // session으로 받아야함

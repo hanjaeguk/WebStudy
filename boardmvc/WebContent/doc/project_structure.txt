@@ -1,0 +1,134 @@
+	//싱글톤 패턴
+	//1.외부에서 생성자접근 못하게 private로 막아라
+	//2.private static으로 자기자신을 리턴
+	//3.하나만 만들어되니깐 static으로 객체 생성
+	//4.외부에서 접근하게 public의 getter
+
+boardmvc
+	- src
+		- com.kitri.action
+			Action.java(I)
+		
+		- com.kitri.action.admin.board
+			AdminBoardListAction.java
+			AdminCategoryMakeAction.java
+			AdminBoardMakeAction.java
+		
+		- com.kitri.admin.board.controller
+			AdminBoardController(S : /adminboard)
+		
+		- com.kitri.admin.board.model
+			BoardTypeDto.java
+			CategoryDto.java
+			BoardListDto.java
+		
+		- com.kitri.admin.board.model.service
+			AdminBoardService.java(I)
+			AdminBoardServiceImple.java
+			
+		- com.kitri.admin.board.model.dao
+			AdminBoardDao.java(I)
+			AdminBoardDaoImple.java			
+					
+		- com.kitri.action.album
+			AlbumListAction.java
+			AlbumViewAction.java
+			AlbumWriteAction.java
+			AlbumModifyAction.java
+			AlbumDeleteAction.java
+			
+		- com.kitri.action.bbs
+			bbsListAction.java
+			bbsViewAction.java
+			bbsWriteAction.java
+			bbsModifyAction.java
+			bbsDeleteAction.java
+			
+		- com.kitri.action.board
+			BoardListAction.java
+			BoardViewAction.java
+			BoardWriteAction.java
+			BoardModifyAction.java
+			BoardDeleteAction.java
+			
+		- com.kitri.action.reboard
+			ReboardListAction.java
+			ReboardViewAction.java
+			ReboardWriteAction.java
+			ReboardModifyAction.java
+			ReboardDeleteAction.java
+			ReboardReplyAction.java
+			
+		- com.kitri.action.memo
+			MemoListAction.java
+			MemoWriteAction.java
+			MemoModifyAction.java
+			MemoDeleteAction.java
+			
+		
+		- com.kitri.board.controller
+			AlbumController.java	(S: /album)
+			BbsController.java		(S: /bbs)
+			BoardController.java	(S: /board)
+			ReboardController.java	(S: /reboard)
+			MemoController.java		(S: /memo)
+		
+		- com.kitri.board.model
+			AlbumDto.java
+			BbsDto.java
+			BoardDto.java
+			ReboardDto.java
+			MemoDto.java
+		
+		- com.kitri.board.model.service
+			AlbumService.java(I)
+			AlbumServiceImpl.java
+			BbsService.java(I)
+			BbsServiceImpl.java
+			BoardService.java(I)
+			BoardServiceImpl.java
+			ReboardService.java(I)
+			ReboardServiceImpl.java
+			MemoService.java(I)
+			MemoServiceImpl.java
+		
+		- com.kitri.board.model.dao
+			AlbumDao.java(I)
+			AlbumDaoImpl.java
+			BbsDao.java(I)
+			BbsDaoImpl.java
+			BoardDao.java(I)
+			BoardDaoImpl.java
+			ReboardDao.java(I)
+			ReboardDaoImpl.java
+			MemoDao.java(I)
+			MemoDaoImpl.java
+			
+		- com.kitri.factory
+			AdminBoardActionFactory.java
+			BoardActionFactory.java
+			
+		- com.kitri.util
+			DBConnection.java
+			DBClose.java
+			BoardConstance.java
+			PageNavigation.java
+			PageMove.java
+	
+	- webContent
+		- css, js, img, doc
+		
+		-admin
+			-board
+				- boardlist.jsp
+				- categorymake.jsp
+				- boardmake.jsp
+		
+		------------------------
+			---공통 : list.jsp, view.jsp, write.jsp, writeok.jsp, modify.jsp
+		- album
+		- bbs
+		- board
+		- reboard : relpy.jsp(답변쓰기)
+		------------------------
+		- index.jsp
