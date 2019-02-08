@@ -155,7 +155,42 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public MemberDetailDto getMember(String id) {
-		return null;
+		MemberDetailDto memberDetailDto = null;
+	
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn=DBConnection.makeConnection();
+
+			StringBuffer sql = new StringBuffer();
+
+			sql.append("select id, name, emailid, emaildomain,tel1,tel2,tel3,zipcode,address,address_detail \r\n");
+			sql.append("from member_detail\r\n");
+			sql.append("where id = ?");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1,id);
+
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				memberDetailDto.setId(rs.getString("id"));
+				memberDetailDto.setName(rs.getString("name"));
+				memberDetailDto.setEmailId(rs.getString("emailid"));
+				memberDetailDto.setEmailDomain(rs.getString("emaildomain"));
+			}
+
+		} catch (SQLException e) {
+			memberDetailDto = null; // set에서 하나라도 예외가 나면!! 객체 안만들고 null해줘야함
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt, rs);
+		}
+		
+
+		return memberDetailDto;
 	}
 
 	@Override

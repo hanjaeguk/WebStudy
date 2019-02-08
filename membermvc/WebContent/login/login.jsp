@@ -3,6 +3,20 @@
     
 <%
 String root = request.getContextPath();
+
+Cookie cookies[] = request.getCookies();
+String sid = "";
+String idck = "";
+
+if(cookies != null){
+	for(Cookie cookie : cookies){
+		if(cookie.getName().equals("nid_sid")){
+			sid = cookie.getValue();
+			idck = "checked=\"checked\"";
+			break;
+		}
+	}
+}
 %>
 <!doctype html>
 <html lang="ko">
@@ -45,8 +59,9 @@ String root = request.getContextPath();
 		<input type="hidden" name="act" value="login">
 		<hr>	
 		<div class="accounttype" align="left">
+		<input type="checkbox" name="idsave" id="idsave" value="idsave"<%=idck %>>아이디저장<br>
 		로그인<br>
-		<input type="text" name="id" id="id" value="" size="12" placeholder="ID"  required/>
+		<input type="text" name="id" id="id" value="<%=sid%>" size="12" placeholder="ID"  required/>
 		<div id = "idblack" style = "display: none"></div>
 		<input type="password" name="pass" id="pass" size="12" maxlength="12" placeholder="Password"  required/>
 		<div id = "passblack" style = "display: none"></div>

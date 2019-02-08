@@ -35,12 +35,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberDetailDto getMember(String id) {
-		return null;
+		return memberDao.getMember(id);
 	}
 
 	@Override
 	public int modify(MemberDetailDto memberDetailDto) {
-		return 0;
+		return memberDao.modify(memberDetailDto);
 	}
 
 	@Override
