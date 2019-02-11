@@ -181,7 +181,7 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 500px;
+  width: 400px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -227,10 +227,10 @@ iframe {
   font-family: Poppins-Medium;
   font-size: 16px;
   color: #333333;
-  line-height: 1.2;
+  line-height: 0.5;
 
   display: block;
-  width: 100%;
+  width: 80%;
   height: 55px;
   background: transparent;
   padding: 0 7px 0 43px;

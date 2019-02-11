@@ -15,22 +15,17 @@
 		<link rel="stylesheet" href="css/signup.css">
 	</head>
 	<body>
-		<div class="wrapper">
+		<div >
             <form action="" id="wizard">
-        		<!-- SECTION 1 -->
-                <h2></h2>
-                <section>
                     <div class="inner">
-						<div class="image-holder">
-							<img src="images/form-wizard-1.jpg" alt="">
-						</div>
+						
 						<div class="form-content" >
 							<div class="form-header">
-								<h3>Registration</h3>
+								<h3>회원가입!!</h3>
 							</div>
 							<div class="form-row">
 								<div class="form-holder">
-									<input type="text" placeholder="id" class="form-control">
+									<input class="input100" type="text" name="username" placeholder="Type your username">
 								</div>
 								<div class="form-holder">
 									<input type="button" value="아이디중복검사" class="btn" width="300">
@@ -81,17 +76,11 @@
 							</div>
 						</div>
 					</div>
-                </section>
+                
 
             </form>
 		</div>
 
-		<!-- JQUERY -->
-		<script src="js/jquery-3.3.1.min.js"></script>
 
-		<!-- JQUERY STEP -->
-		<script src="js/jquery.steps.js"></script>
-		<script src="js/main.js"></script>
-		<!-- Template created and distributed by Colorlib -->
 </body>
 </html>
