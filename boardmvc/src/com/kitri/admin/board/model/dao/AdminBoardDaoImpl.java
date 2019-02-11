@@ -37,7 +37,11 @@ public class AdminBoardDaoImpl implements AdminBoardDao {
 			conn = DBConnection.makeConnection();			
 			StringBuffer sql = new StringBuffer();	
 			
-			sql.append("select bl.bcode, bl.bname, bl.btype, c.ccode, c.cname \n");
+			sql.append("select bl.bcode, bl.bname, bl.btype, c.ccode, c.cname, \n");
+			sql.append("			decode(bl.btype,'5','reboard',	\n");
+			sql.append("					'6','album',	\n");
+			sql.append("					'7','bbs',	\n");
+			sql.append("					'board') control	\n");
 			sql.append("from board_list bl, category c \n");
 			sql.append("where bl.ccode = c.ccode \n");
 			sql.append("order by c.ccode,bl.bcode \n");
@@ -52,6 +56,7 @@ public class AdminBoardDaoImpl implements AdminBoardDao {
 				boardListDto.setBtype(rs.getInt("btype"));
 				boardListDto.setCcode(rs.getInt("ccode"));
 				boardListDto.setCname(rs.getString("cname"));
+				boardListDto.setControl(rs.getString("control"));
 				
 				list.add(boardListDto);
 			}

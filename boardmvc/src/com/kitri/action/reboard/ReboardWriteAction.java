@@ -5,8 +5,12 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kitri.action.Action;
+import com.kitri.board.model.ReboardDto;
+import com.kitri.board.model.service.ReboardServiceImpl;
+import com.kitri.member.model.MemberDto;
 
 public class ReboardWriteAction implements Action {
 	
@@ -24,7 +28,20 @@ public class ReboardWriteAction implements Action {
 
 	@Override
 	public String excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return null;
+		HttpSession session = request.getSession();
+		MemberDto memberDto = (MemberDto) session.getAttribute("userInfo");
+		if(memberDto != null) {
+			ReboardDto reboardDto = new ReboardDto();
+			reboardDto.setId(memberDto.getId());
+			reboardDto.setName(memberDto.getName());
+			reboardDto.setEmail(memberDto.getEmailid()+"@"+memberDto.getEmaildomain());
+			reboardDto.setSubject(request.getParameter("subject"));
+			reboardDto.setContent(request.getParameter("content"));
+			reboardDto.setBcode(Integer.parseInt(request.getParameter("bcode")));
+			
+			int seq = ReboardServiceImpl.getReboardService().writeArticle(reboardDto);
+		}
+		return "/index.jsp";
 	}
 
 }
