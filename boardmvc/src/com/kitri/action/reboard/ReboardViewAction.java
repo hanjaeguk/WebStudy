@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kitri.action.Action;
+import com.kitri.board.model.ReboardDto;
+import com.kitri.board.model.service.ReboardServiceImpl;
 
 public class ReboardViewAction implements Action {
 	
@@ -25,7 +27,10 @@ public class ReboardViewAction implements Action {
 
 	@Override
 	public String excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return null;
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		ReboardDto reboardDto = ReboardServiceImpl.getReboardService().viewArticle(seq);
+		request.setAttribute("article", reboardDto);
+		return "/reboard/view.jsp";
 	}
 
 }

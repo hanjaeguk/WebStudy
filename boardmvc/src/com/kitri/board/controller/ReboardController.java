@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.kitri.factory.BoardActionFactory;
 import com.kitri.util.BoardConstance;
 import com.kitri.util.PageMove;
+import com.kitri.util.Validator;
 
 
 @WebServlet("/reboard")
@@ -19,28 +20,37 @@ public class ReboardController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String act = request.getParameter("act");
 		
-		int bcode = Integer.parseInt(request.getParameter("bcode"));
-		int pg = Integer.parseInt(request.getParameter("pg"));
+		int bcode = Validator.notNumberToZero(request.getParameter("bcode"));
+		int pg =  Validator.notNumberToOne(request.getParameter("pg"));
 		
-		String key = request.getParameter("key");
-		String word = request.getParameter("word");
+		String key = Validator.nullToBlank(request.getParameter("key"));
+		String word = Validator.nullToBlank(request.getParameter("word"));
 		
 		String path = "/index.jsp";
 		
+		String queryString = "?bcode="+bcode+"&pg="+pg+"&key="+key+"&word="+word;
+		
 		if("mvwrite".equals(act)) {
-			path = "/reboard/write.jsp?bcode="+bcode+"&pg="+pg+"&key="+key+"&word="+word;
+			path = "/reboard/write.jsp"+queryString;
 			PageMove.redirect(request, response, path);
 			
-		} else if("write".equals(act)) {
+		} else if("writearticle".equals(act)) {
 			path = BoardActionFactory.getReboardWriteAction().excute(request, response);
-			
+			path += queryString;
+			PageMove.forward(request, response, path);
+		} else if("viewarticle".equals(act)) {
+			path = BoardActionFactory.getReboardViewAction().excute(request, response);
+			path += queryString;
+			PageMove.forward(request, response, path);
+		} else if("listarticle".equals(act)) {
+			path = BoardActionFactory.getReboardListAction().excute(request, response);
+			path += queryString;
+			PageMove.forward(request, response, path);
 		} else if("".equals(act)) {
 			
 		} else if("".equals(act)) {
 			
-		} else if("".equals(act)) {
-			
-		} else if("".equals(act)) {
+		} else {
 			
 		}
 	}

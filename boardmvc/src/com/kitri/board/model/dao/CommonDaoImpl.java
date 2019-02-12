@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.kitri.board.model.ReboardDto;
 import com.kitri.util.DBConnection;
 import com.kitri.util.DBclose;
 
@@ -47,6 +48,30 @@ public class CommonDaoImpl implements CommonDao {
 			DBclose.close(conn, pstmt, rs);
 		}
 		return seq;
+	}
+
+	@Override
+	public void updateHit(int seq) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("update board \n");
+			sql.append("set hit = hit + 1 \n");
+			sql.append("where seq = ?");
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, seq);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt);
+		}
+		
 	}
 
 }

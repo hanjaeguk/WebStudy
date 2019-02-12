@@ -15,4 +15,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-
+	<form name="commonForm" id="commonForm" method="get">
+		<input type="hidden" name="act" id="act" value="">
+		<input type="hidden" name="bcode" id="bcode" value="${bcode}">
+		<input type="hidden" name="pg" id="pg" value="${pg}">
+		<input type="hidden" name="key" id="key" value="${key}">
+		<input type="hidden" name="word" id="word" value="${word}">
+		<input type="hidden" name="seq" id="seq" value="">
+	
+	</form>

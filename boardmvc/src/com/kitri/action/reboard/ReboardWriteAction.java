@@ -40,6 +40,8 @@ public class ReboardWriteAction implements Action {
 			reboardDto.setBcode(Integer.parseInt(request.getParameter("bcode")));
 			
 			int seq = ReboardServiceImpl.getReboardService().writeArticle(reboardDto);
+			request.setAttribute("seq", seq);
+			return "/reboard/writeok.jsp";
 		}
 		return "/index.jsp";
 	}

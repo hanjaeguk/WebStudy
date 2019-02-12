@@ -70,25 +70,15 @@
       <div class="container">
         <div class="row">
         	<div class="col-lg-3 sidebar">
-        		<div class="sidebar-wrap bg-light ftco-animate">
-        			<h3 class="heading mb-4">Find City</h3>
-        			<form action="#">
-        				<div class="fields">
-		              <div class="form-group">
-		                <input type="text" class="form-control" placeholder="Destination, City">
-		              </div>
-		              <div class="form-group">
-		                <div class="select-wrap one-third">
-	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control" placeholder="Keyword search">
-	                      <option value="">Select Location</option>
-	                      <option value="">San Francisco USA</option>
-	                      <option value="">Berlin Germany</option>
-	                      <option value="">Lodon United Kingdom</option>
-	                      <option value="">Paris Italy</option>
-	                    </select>
-	                  </div>
-		              </div>
+        		<ul class="list-unstyled">
+		        	<li><a href="#" class="py-2 d-block">내가 작성한 목록</a></li>
+	                <li><a href="#" class="py-2 d-block">내가 찜한 목록</a></li>
+	                <li><a href="#" class="py-2 d-block">내 정보관리</a></li>
+	
+	            </ul>	
+	        </div>
+		</div>
+		              
 		              <div class="form-group">
 		                <input type="text" id="checkin_date" class="form-control" placeholder="Date from">
 		              </div>

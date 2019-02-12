@@ -47,23 +47,23 @@
 		          <li><a href="#" class="dropdown-item">여행 꿀팁</a></li>	          
 		        </ul>
 	      </li>         
-	         <!--    
-          <li class="nav-item cta"><a href="contact.jsp" class="nav-link"><span>로그인</span></a></li>&nbsp;&nbsp;      
-          <li class="nav-item cta"><a href="contact.jsp" class="nav-link"><span>회원가입</span></a></li>
-           -->  
+	             <!-- 
+          <li class="nav-item cta"><a href="login.jsp" class="nav-link"><span>로그인</span></a></li>&nbsp;&nbsp;      
+          <li class="nav-item cta"><a href="register.jsp" class="nav-link"><span>회원가입</span></a></li>
+              -->  
           <!-- 로그인 -->
-       
+      
           <li class="nav-item cta dropdown">
           	<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><span>마이페이지</span></a>
    		        <ul class="dropdown-menu">
-		          <li><a href="#" class="dropdown-item">내 정보 확인</a></li>
-		          <li><a href="#" class="dropdown-item">내가 작성한 목록</a></li>
-		          <li><a href="#" class="dropdown-item">내가 찜한 목록</a></li>	
+		          <li><a href="member_modify.jsp" class="dropdown-item">내 정보 확인</a></li>
+		          <li><a href="mywritelist.jsp" class="dropdown-item">내가 작성한 목록</a></li>
+		          <li><a href="mylikelist.jsp" class="dropdown-item">내가 찜한 목록</a></li>	
 		          <li id="adminMy"><a href="#" class="dropdown-item">회원관리</a></li>              
 		        </ul>
           </li>&nbsp;&nbsp;
           <li class="nav-item cta"><a href="" class="nav-link"><span>로그아웃</span></a></li>
-                  
+      
            
         </ul>
       </div>

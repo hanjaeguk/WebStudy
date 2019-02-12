@@ -30,7 +30,7 @@
 							<br><br>
 							<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired" align="left">
 								<span class="label-input100">아이디</span>
-								<input class="input100" type="text" name="username" placeholder="아이디입력">
+									<input class="input100" type="text" name="username" placeholder="아이디입력">
 								<span class="focus-input100" data-symbol="&#xf206;"></span>
 							</div>
 							<div class="d-flex justify-content-center mb-3" align="right">
@@ -42,8 +42,9 @@
 							<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired" align="left">
 								<span class="label-input100">이름</span>
 									<input class="input100" type="text" name="username" placeholder="이름입력">
-								<span class="focus-input100" data-symbol="&#xf206;"></span>
+								<span class="focus-input100" data-symbol="&#xf203;"></span>
 							</div>
+							<br>
 							<div class="wrap-input100 validate-input" data-validate="Password is required" align="left">
 								<span class="label-input100">비밀번호</span>
 								<input class="input100" type="password" name="pass" placeholder="비밀번호입력">
@@ -53,13 +54,13 @@
 							<div class="wrap-input100 validate-input" data-validate="Password is required" align="left">
 								<span class="label-input100">비밀번호확인</span>
 								<input class="input100" type="password" name="pass" placeholder="비밀번호 재입력">
-								<span class="focus-input100" data-symbol="&#xf190;"></span>
+								<span class="focus-input100" data-symbol="&#xf191;"></span>
 							</div>
 							<br>
 							<div class="wrap-input100 validate-input" data-validate="Password is required" align="left">
 								<span class="label-input100">이메일</span>
 								<input class="input100" type="password" name="pass" placeholder="이메일입력">
-								<span class="focus-input100" data-symbol="&#xf190;"></span>
+								<span class="focus-input100" data-symbol="&#xf15a;"></span>
 							</div>
 							
 							

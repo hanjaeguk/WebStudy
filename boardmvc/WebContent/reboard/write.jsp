@@ -48,7 +48,7 @@ $(document).ready(function() {
 	style="margin: 0px">
 <div id="attach_file_hdn"></div>
 
-<input type="hidden" name="act" value="write">
+<input type="hidden" name="act" value="writearticle">
 <input type="hidden" name="bcode" value="${bcode}">
 <input type="hidden" name="pg" value="1">
 <input type="hidden" name="key" value="">
