@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$("#commonForm").attr("action","${root}/reboard").submit();
 	});
 	
-	$(".articletr").click(function() {
+	$(".articlesubject").click(function() {
 		
 		$("#act").val("viewarticle");
 		$("#seq").val($(this).attr("article-seq"));
@@ -44,8 +44,8 @@ $(document).ready(function() {
 		</td>
 
 		<td width="100%" style="padding-left: 6px" valign="bottom">새글 <b><font
-			class="text_acc_02">새글 수를 출력 하는 부분</font></b> / 전체 <font
-			class="text_acc_02">전체 글수를 출력 하는 부분</font></td>
+			class="text_acc_02">${navigation.newArticleCount}</font></b> / 전체 <font
+			class="text_acc_02">${navigation.totalArticleCount}</font></td>
 		<td width="300" nowrap>
 		<div align="right"></div>
 		</td>
@@ -83,7 +83,7 @@ $(document).ready(function() {
 
 	<!-- 공지기능 적용끝  -->
 	<c:forEach var="article" items="${list}">
-		<tr class="articletr" article-seq="${article.seq}">
+		<tr>
 			<td align="center" class="text_gray">${article.seq}</td>
 			<td></td>
 			<td nowrap class="onetext" style="padding-right: 5px"></td>
@@ -91,7 +91,7 @@ $(document).ready(function() {
 	     
 	     </td-->
 			<td style="word-break: break-all;">
-			${article.subject}</td>
+			<label class="articlesubject" article-seq="${article.seq}"> ${article.subject}</td></label>
 			<td></td>
 			<td style="word-break: break-all;"><a href="javascript:;"
 				onClick="showSideView();" class="link_board_04">${article.name}</a></td>
@@ -128,8 +128,8 @@ $(document).ready(function() {
 			<img src="${root}/img/board/btn_write_01.gif" class="writeBtn" 
 				width="64" height="22" border="0" align="absmiddle" alt="글쓰기">
 		</td>
-		<td width="100%" align="center"><!--PAGE--> 페이지 분류를 하는 부분</td>
-		<td nowrap class="stext"><b>현재 페이지 출력 부분</b> / 총 페이지수를 출력 하는 부분
+		<td width="100%" align="center"><!--PAGE--> ${navigation.navigator}</td>
+		<td nowrap class="stext"><b>${navigation.pageNo}</b> / ${navigation.totalArticleCount}
 		pages</td>
 	</tr>
 </table>

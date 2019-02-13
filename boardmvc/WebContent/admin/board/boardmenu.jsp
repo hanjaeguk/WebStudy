@@ -57,7 +57,7 @@ $(document).ready(function() {
 		<c:if test="${preCcode != boardListDto.ccode}">
 <p class="menu_header">${boardListDto.cname}</p>
 <div class="menu_body">
-			<c:set var="preCcode" value="${boardListDto.ccode}"/>
+		<c:set var="preCcode" value="${boardListDto.ccode}"/>
 		</c:if>
 			<a href="${root}/${boardListDto.control}?act=listarticle&bcode=${boardListDto.bcode}&pg=1&key=&word=">
 			${boardListDto.bname}

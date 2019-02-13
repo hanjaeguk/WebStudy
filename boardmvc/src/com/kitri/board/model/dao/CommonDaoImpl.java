@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 import com.kitri.board.model.ReboardDto;
 import com.kitri.util.DBConnection;
@@ -72,6 +73,62 @@ public class CommonDaoImpl implements CommonDao {
 			DBclose.close(conn, pstmt);
 		}
 		
+	}
+
+	@Override
+	public int getNewArticleCount(int bcode) {
+		int cnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select count(seq) \n");
+			sql.append("from board \n");
+			sql.append("where bcode =? \n");
+			sql.append("and to_char(logtime,'yymmdd') = to_char(sysdate,'yymmdd')");
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, bcode);
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt, rs);
+		}
+		return cnt;
+	}
+
+	@Override
+	public int getTotalArticleCount(Map<String, String> map) {
+		int cnt = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("select count(seq) \n");
+			sql.append("from board \n");
+			sql.append("where bcode =? \n");
+
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, map.get("bcode"));
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt, rs);
+		}
+		return cnt;
 	}
 
 }

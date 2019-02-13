@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kitri.action.Action;
 import com.kitri.board.model.ReboardDto;
+import com.kitri.board.model.service.CommonServiceImpl;
 import com.kitri.board.model.service.ReboardServiceImpl;
+import com.kitri.util.PageNavigation;
 import com.kitri.util.Validator;
 
 public class ReboardListAction implements Action {
@@ -35,6 +37,12 @@ public class ReboardListAction implements Action {
 		
 		List<ReboardDto> list = ReboardServiceImpl.getReboardService().listArticle(bcode, pg, key, word);
 		request.setAttribute("list", list);
+		
+		PageNavigation pageNavigation = CommonServiceImpl.getCommonService().getPageNavigation(bcode, pg, key, word);
+		pageNavigation.setRoot(request.getContextPath());
+		pageNavigation.makeNavigator();
+		request.setAttribute("navigation", pageNavigation);
+		
 		return "/reboard/list.jsp";
 	}
 

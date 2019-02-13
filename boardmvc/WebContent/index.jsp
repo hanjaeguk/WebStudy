@@ -12,4 +12,5 @@ memberDto.setEmaildomain("naver.com");
 session.setAttribute("userInfo", memberDto);
 
 PageMove.redirect(request, response, "/adminboard?act=boardmenu");
+
 %>    
