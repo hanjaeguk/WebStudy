@@ -5,6 +5,7 @@
 <script>
 $(document).ready(function() {
 	$(".writeBtn").click(function() {
+
 		$("#act").val("mvwrite");
 		$("#pg").val("1");
 		$("#key").val("");
@@ -25,6 +26,17 @@ $(document).ready(function() {
 	});
 	
 	$(".prelist").click(function() {
+		$("#act").val("listarticle");
+		$("#commonForm").attr("action","${root}/reboard").submit();
+	});
+	
+	$(".modifyBtn").click(function() {
+		$("#act").val("mvmodify");
+		$("#seq").val("${article.seq}");
+		$("#commonForm").attr("action","${root}/reboard").submit();
+	});
+	
+	$(".deleteBtn").click(function() {
 		$("#act").val("listarticle");
 		$("#commonForm").attr("action","${root}/reboard").submit();
 	});
@@ -55,6 +67,16 @@ $(document).ready(function() {
 				border="0" align="absmiddle" alt="글쓰기">
 			<img src="${root}/img/board/btn_reply.gif" class="replyBtn" width="40" height="22"
 				border="0" align="absmiddle" alt="답글">
+				
+			<c:if test="${userInfo.id == article.id}">
+			
+				<img src="${root}/img/board/btn_modify.gif" class="modifyBtn"
+					border="0" align="absmiddle" alt="글수정">
+					
+				<img src="${root}/img/board/btn_delete.gif" class="deleteBtn"
+					border="0" align="absmiddle" alt="글삭제">
+			
+			</c:if>
 		</td>
 		<td valign="bottom" width="100%" style="padding-left: 4px"></td>
 		<td align="right" nowrap valign="bottom">

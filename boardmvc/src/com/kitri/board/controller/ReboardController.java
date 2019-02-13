@@ -1,6 +1,8 @@
 package com.kitri.board.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +30,7 @@ public class ReboardController extends HttpServlet {
 		
 		String path = "/index.jsp";
 		
-		String queryString = "?bcode="+bcode+"&pg="+pg+"&key="+key+"&word="+word;
+		String queryString = "?bcode="+bcode+"&pg="+pg+"&key="+key+"&word="+URLEncoder.encode(word, BoardConstance.ENCODER);
 		
 		if("mvwrite".equals(act)) {
 			path = "/reboard/write.jsp"+queryString;
@@ -46,7 +48,11 @@ public class ReboardController extends HttpServlet {
 			path = BoardActionFactory.getReboardListAction().excute(request, response);
 			path += queryString;
 			PageMove.forward(request, response, path);
-		} else if("".equals(act)) {
+			
+		} else if("mvmodify".equals(act)) {
+			path = BoardActionFactory.getReboardMoveModifyAction().excute(request, response);
+			path += queryString;
+			PageMove.forward(request, response, path);
 			
 		} else if("".equals(act)) {
 			

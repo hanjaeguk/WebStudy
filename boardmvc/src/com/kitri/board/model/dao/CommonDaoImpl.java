@@ -115,10 +115,22 @@ public class CommonDaoImpl implements CommonDao {
 			StringBuffer sql = new StringBuffer();
 			sql.append("select count(seq) \n");
 			sql.append("from board \n");
-			sql.append("where bcode =? \n");
+			sql.append("where bcode = ? \n");
+			String key = map.get("key");
+			String word = map.get("word");
+			if(!key.isEmpty() && !word.isEmpty()){
+				if("subject".equals(key)) {
+					sql.append("and subject like '%'||?||'%' \n");
+				} else {
+					sql.append("and "+ key +" = ? \n");						
+				}
+			}
 
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1, map.get("bcode"));
+			if(!key.isEmpty() && !word.isEmpty()){
+				pstmt.setString(2, word);
+			}
 			rs = pstmt.executeQuery();
 			rs.next();
 			cnt = rs.getInt(1);

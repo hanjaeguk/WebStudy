@@ -10,7 +10,6 @@ public interface ReboardDao {
 	List<ReboardDto>listArticle(Map<String,String> map);
 	ReboardDto viewArticle(int seq);
 	int replyArticle(ReboardDto reboardDto);
-	ReboardDto getArticle(int seq);
 	int modifyArticle(ReboardDto reboardDto);
 	int deleteArticle(int seq);
 }

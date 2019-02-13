@@ -4,7 +4,7 @@ public class Validator {
 	
 	public static String nullToBlank(String tmp) {
 		
-		return tmp == null ? "" : tmp;
+		return tmp == null ? "" : tmp.trim();
 	}
 	
 	public static int notNumberToZero(String tmp){

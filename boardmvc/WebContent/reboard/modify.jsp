@@ -44,7 +44,7 @@
 		</td>
 		<td colspan="5"><input name="subject" id="subject" type="text"
 			size="76" maxlength="150" class="inp_02" style="width: 300px"
-			value=""><img src="${root}/img/board/i_info.gif" width="12"
+			value="${article.subject}"><img src="${root}/img/board/i_info.gif" width="12"
 			height="11" border="0" align="absmiddle" vspace="8"
 			style="margin: 3 3 0 6"><font class="stext">최대 한글 75자,
 		영문 150자</font><br>
@@ -56,8 +56,7 @@
 				height="4" border="0" align="absmiddle"> <b>글내용</b>
 		</td>
 		<td colspan="5">	 
-			<textarea name="content" class="inp_02" cols="67" rows="25" scrollbars="no">
-			</textarea>
+			<textarea name="content" class="inp_02" cols="67" rows="25" scrollbars="no"></textarea>
 		</td>
 	</tr>
 </table>
@@ -77,7 +76,7 @@
 	<tr>
 		<td align="center"><a href="javascript:writeArticle();"><img
 			src="${root}/img/board/btn_register.gif" width="42" height="21"
-			border="0" name="register" alt="등록"></a> <a
+			border="0" name="register" alt="수정"></a> <a
 			href="javascript:history.back();"><img
 			src="${root}/img/board/b_cancel.gif" width="42" height="21"
 			border="0" name="cencel" alt="취소"></a></td>

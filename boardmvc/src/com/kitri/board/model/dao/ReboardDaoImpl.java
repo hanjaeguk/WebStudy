@@ -97,6 +97,15 @@ public class ReboardDaoImpl implements ReboardDao {
 			sql.append("      from board b, reboard r \n");
 			sql.append("      where b.seq = r.seq \n");
 			sql.append("      and b.bcode = ? \n");
+			String key = map.get("key");
+			String word = map.get("word");
+			if(!key.isEmpty() && !word.isEmpty()){
+				if("subject".equals(key)) {
+					sql.append("      and b.subject like '%'||?||'%' \n");
+				} else {
+					sql.append("      and b."+ key +" = ? \n");						
+				}
+			}
 			sql.append("      order by b.seq desc \n");
 			sql.append("      ) a \n");
 			sql.append("   where rownum <= ? \n");
@@ -104,10 +113,13 @@ public class ReboardDaoImpl implements ReboardDao {
 			sql.append("where b.rn > ? \n");
 			
 			pstmt = conn.prepareStatement(sql.toString());
-			
-			pstmt.setString(1, map.get("bcode"));
-			pstmt.setString(2, map.get("end"));
-			pstmt.setString(3, map.get("start"));
+			int idx = 0;
+			pstmt.setString(++idx, map.get("bcode"));
+			if(!key.isEmpty() && !word.isEmpty()){
+				pstmt.setString(++idx, word);
+			}
+			pstmt.setString(++idx, map.get("end"));
+			pstmt.setString(++idx, map.get("start"));
 		
 			rs = pstmt.executeQuery();
 			
@@ -198,11 +210,6 @@ public class ReboardDaoImpl implements ReboardDao {
 	@Override
 	public int replyArticle(ReboardDto reboardDto) {
 		return 0;
-	}
-
-	@Override
-	public ReboardDto getArticle(int seq) {
-		return null;
 	}
 
 	@Override
