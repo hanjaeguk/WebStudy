@@ -4,6 +4,7 @@ import com.kitri.action.Action;
 import com.kitri.action.reboard.ReboardListAction;
 import com.kitri.action.reboard.ReboardModifyAction;
 import com.kitri.action.reboard.ReboardMoveModifyAction;
+import com.kitri.action.reboard.ReboardMoveReplyAction;
 import com.kitri.action.reboard.ReboardReplyAction;
 import com.kitri.action.reboard.ReboardViewAction;
 import com.kitri.action.reboard.ReboardWriteAction;
@@ -17,6 +18,7 @@ public class BoardActionFactory {
 	private static Action reboardModifyAction; 
 	private static Action reboardMoveModifyAction; 
 	private static Action reboardDeleteAction; 
+	private static Action reboardMoveReplyAction; 
 	
 	static {
 		reboardWriteAction = ReboardWriteAction.getReboardWriteAction();
@@ -25,11 +27,28 @@ public class BoardActionFactory {
 		reboardReplyAction = ReboardReplyAction.getReboardReplyAction();
 		reboardModifyAction = ReboardModifyAction.getReboardModifyAction();
 		reboardMoveModifyAction = ReboardMoveModifyAction.getReboardMoveModifyAction();
+		reboardMoveReplyAction = ReboardMoveReplyAction.getReboardMoveReply();
+		
 	}
+	
+	
 
 	public static Action getReboardMoveModifyAction() {
 		return reboardMoveModifyAction;
 	}
+
+	
+	
+	public static Action getReboardMoveReplyAction() {
+		return reboardMoveReplyAction;
+	}
+
+
+
+	public static void setReboardMoveReplyAction(Action reboardMoveReplyAction) {
+		BoardActionFactory.reboardMoveReplyAction = reboardMoveReplyAction;
+	}
+
 
 
 	public static Action getReboardWriteAction() {

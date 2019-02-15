@@ -1,13 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <style>
 
 #adminMy{
 	display: none;
 }
-
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+<script>
+$(document).ready(function(){
+  $("#myLoginBtn").click(function(){
+    $("#myLoginModal").modal();
+  });
+});
+</script>
 
 
 
@@ -47,13 +57,14 @@
 		          <li><a href="#" class="dropdown-item">축제 리뷰</a></li>
 		          <li><a href="#" class="dropdown-item">여행 꿀팁</a></li>	          
 		        </ul>
-	      </li>         
-	          
-          <li class="nav-item cta"><a href="contact.jsp" class="nav-link"><span>로그인</span></a></li>&nbsp;&nbsp;      
+	      </li>
+	      
+	              
+          <li class="nav-item cta"><a href="#" class="nav-link" id="myLoginBtn"><span>로그인</span></a></li>&nbsp;&nbsp;
           <li class="nav-item cta"><a href="contact.jsp" class="nav-link"><span>회원가입</span></a></li>
-          
           <!-- 로그인 -->
-         <!-- 
+      
+	      <!-- 
           <li class="nav-item cta dropdown">
           	<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><span>마이페이지</span></a>
    		        <ul class="dropdown-menu">
@@ -64,9 +75,8 @@
 		        </ul>
           </li>&nbsp;&nbsp;
           <li class="nav-item cta"><a href="" class="nav-link"><span>로그아웃</span></a></li>
-              -->       
-           
-        </ul>
+           -->    
+
       </div>
     </div>
   </nav>

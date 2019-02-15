@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/template/board_common.jsp"%>
+
+
+<script>
+$(document).ready(function() {
+	$("#modifyBtn").click(function() {
+		if($("#subject").val().trim().length == 0){
+			 alert("제목입력")
+			 return;
+		}else if($("#content").val().trim().length == 0){
+			 alert("내용입력")
+			 return;
+		}else{
+			$("#writeForm").attr("action","${root}/reboard").submit();
+			//$("writeForm").submit();
+		}
+	});
+});
+</script>
+
+
 <!-- title -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 	<tr>
@@ -32,7 +52,11 @@
 	style="margin: 0px">
 <div id="attach_file_hdn"></div>
 
-<input type="hidden" name="" value="">
+<input type="hidden" name="act" value="modifyarticle">
+<input type="hidden" name="bcode" value="${bcode}">
+<input type="hidden" name="pg" value="${pg}">
+<input type="hidden" name="key" value="${key}">
+<input type="hidden" name="word" value="${word}">
 
 <table border="0" cellpadding="5" cellspacing="0" width="630"
 	style="table-layout: fixed">
@@ -40,7 +64,7 @@
 		<tr valign="top">
 		<td width="95" nowrap style="padding-left: 8px; padding-top: 10px"><img
 			src="${root}/img/board/e_dot.gif" width="4" height="4" border="0"
-			align="absmiddle"> <b>제목</b>
+			align="absmiddle"> <b>제목!!</b>
 		</td>
 		<td colspan="5"><input name="subject" id="subject" type="text"
 			size="76" maxlength="150" class="inp_02" style="width: 300px"
@@ -56,7 +80,8 @@
 				height="4" border="0" align="absmiddle"> <b>글내용</b>
 		</td>
 		<td colspan="5">	 
-			<textarea name="content" class="inp_02" cols="67" rows="25" scrollbars="no"></textarea>
+			<textarea name="content" class="inp_02" cols="67" rows="25" scrollbars="no">${article.content}
+			</textarea>
 		</td>
 	</tr>
 </table>
@@ -75,7 +100,7 @@
 	</tr>
 	<tr>
 		<td align="center"><a href="javascript:writeArticle();"><img
-			src="${root}/img/board/btn_register.gif" width="42" height="21"
+			src="${root}/img/board/btn_register.gif" id="modifyBtn" width="42" height="21"
 			border="0" name="register" alt="수정"></a> <a
 			href="javascript:history.back();"><img
 			src="${root}/img/board/b_cancel.gif" width="42" height="21"

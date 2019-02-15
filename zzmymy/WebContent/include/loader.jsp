@@ -23,3 +23,6 @@
   <script src="${root}/resources/js/main.js"></script>
   <script src="${root}/resources/vendor/chart.js/Chart.min.js"></script>
   <script src="${root}/resources/vendor/chart.js/chart-pie-demo.js"></script>
+  
+  
+  

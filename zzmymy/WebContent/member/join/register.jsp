@@ -5,6 +5,8 @@
 <head>
 <title>Insert title here</title>
 <%@ include file="/include/link.jsp"%>
+<%@ include file="/include/nav.jsp"%>
+
 </head>
 <body>
 

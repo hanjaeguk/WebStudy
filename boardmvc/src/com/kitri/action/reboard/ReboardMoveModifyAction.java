@@ -28,14 +28,11 @@ public class ReboardMoveModifyAction implements Action{
 	@Override
 	public String excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
-		
 			int seq = Integer.parseInt(request.getParameter("seq"));
 			ReboardDto reboardDto =	ReboardServiceImpl.getReboardService().getArticle(seq);
 			request.setAttribute("article", reboardDto);
 			return "/reboard/modify.jsp";
 	
-		
 
 	}
 }

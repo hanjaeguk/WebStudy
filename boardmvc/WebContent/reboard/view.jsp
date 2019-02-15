@@ -13,15 +13,18 @@ $(document).ready(function() {
 		$("#commonForm").attr("action","${root}/reboard").submit();
 	});
 	
-	$(".replyBtn").click(function() {
-		
-	});
 	
 	$(".newlist").click(function() {
 		$("#act").val("listarticle");
 		$("#pg").val("1");
 		$("#key").val("");
 		$("#word").val("");
+		$("#commonForm").attr("action","${root}/reboard").submit();
+	});
+	
+	$(".replyBtn").click(function() {
+		$("#act").val("mvreply");
+		$("#seq").val("${article.seq}");
 		$("#commonForm").attr("action","${root}/reboard").submit();
 	});
 	
