@@ -23,15 +23,13 @@
     <!----- 개인 css 추가 ----->
     
     <!-- 임슬기 -->
-    <link rel="stylesheet" href="${root}/resources/css/schedule.css">
+
     
     <!-- 한재국 -->
-    <link rel="stylesheet" href="${root}/resources/css/login.css">
-	<link rel="stylesheet" href="${root}/resources/fonts/iconic/css/material-design-iconic-font.min.css">
-	
+
 	
 	<!-- 이동호 -->
-	<link rel="stylesheet" href="${root}/resources/css/community.css">
+
 		
 	<!-- 오상재 -->
 	

@@ -3,35 +3,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
-<script>
-$(document).ready(function(){
-  $("#myLoginBtn").click(function(){
-    $("#myLoginModal").modal();
-  });
-});
-</script>
-  
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
+    <link rel="stylesheet" href="${root}/resources/css/login.css">
+	<link rel="stylesheet" href="${root}/resources/fonts/iconic/css/material-design-iconic-font.min.css">
+<style>
+.white_content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.white_content:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.white_content > div {
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	height: 50%;
+	padding: 16px;
+	border: 16px solid orange;
+	background-color: white;
+	overflow: auto;	
+}
+</style>
 <body>
-
-	
-  <h2>로그인</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" id="myLoginBtn">Login</button>
-
-  <!-- Modal -->
- <div class="modal fade" id="myLoginModal" role="dialog">
-   <div class="modal-dialog">
-   
-     <!-- Modal content-->
-     <div class="modal-content">
-      
-	<div>
+ <p>메인 콘텐츠입니다. Lightbox를 표시하려면<a href="#open">여기</a>를 클릭하십시오.</p>
+    <div class="white_content" id="open">
+        	<div>
 		<form class="login100-form validate-form">
 			<div class="new-modal-login">
 			<h4><span class="glyphicon glyphicon-lock" style="align-text:center;"></span>로그인</h4>
@@ -63,12 +73,6 @@ $(document).ready(function(){
 			 </div>				
 			</form>
 		</div>
-      </div>
-   </div>
- </div> 
-
- 
-
-
+    </div>
 </body>
 </html>
