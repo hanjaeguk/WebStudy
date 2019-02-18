@@ -48,7 +48,8 @@
 	      </li>
 	      
 	              
-          <li class="nav-item cta"><a href="#myLoginBtn" class="nav-link"><span>로그인</span></a></li>&nbsp;&nbsp;
+          <li class="nav-item cta"><a href="#myLogin" class="nav-link"><span>로그인</span></a></li>&nbsp;&nbsp;
+           	<%@ include file="/loginmodal.jsp"%>
           
           <li class="nav-item cta"><a href="contact.jsp" class="nav-link"><span>회원가입</span></a></li>
           <!-- 로그인 -->

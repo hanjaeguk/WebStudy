@@ -5,12 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-$(window).bind('touchmove', handler);        // 레이어팝업 열린 상태
-$(window).unbind('touchmove', handler);
 
-
-</script>
 <link rel="stylesheet" href="${root}/resources/css/login.css">
 <link rel="stylesheet" href="${root}/resources/fonts/iconic/css/material-design-iconic-font.min.css">
 </head>
@@ -45,7 +40,7 @@ $(window).unbind('touchmove', handler);
 		    	</div>		
 			 </div>				
 			</form>
-		    	            <p>Lightbox 콘텐츠입니다. <a href="#close">닫기</a></p>
+		    	            <p align="left"><a href="#close">닫기</a></p>
 		</div>
     </div>
 </body>

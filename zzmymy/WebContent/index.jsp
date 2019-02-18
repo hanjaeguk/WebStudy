@@ -373,7 +373,6 @@
     </section>        
 
 
- 	<%@ include file="/loginmodal.jsp"%>
 
 	<%@ include file="/include/footer.jsp"%>
 	<%@ include file="/include/loader.jsp"%>    
