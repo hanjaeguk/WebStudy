@@ -62,9 +62,9 @@ if(cookies != null){
 		<input type="checkbox" name="idsave" id="idsave" value="idsave"<%=idck %>>아이디저장<br>
 		로그인<br>
 		<input type="text" name="id" id="id" value="<%=sid%>" size="12" placeholder="ID"  required/>
-		<div id = "idblack" style = "display: none"></div>
+		<div id="idblack" style="display: none"></div>
 		<input type="password" name="pass" id="pass" size="12" maxlength="12" placeholder="Password"  required/>
-		<div id = "passblack" style = "display: none"></div>
+		<div id="passblack" style= "display: none"></div>
 	    <br>
 	    <input type="button" value="로그인" class="button" onclick="javascript:login();"/>&nbsp;&nbsp;
 	    <input type="button" value="회원가입" class="button" onclick = "javascript:mvjoin();"/>

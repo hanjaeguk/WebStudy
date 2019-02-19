@@ -14,7 +14,7 @@
    <!-- nav -->
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.jsp">방방콕콕</a>
+      <a class="navbar-brand" href="${root}/index.jsp">방방콕콕</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -28,16 +28,17 @@
 		  			<!-- 로그인 모달 추가! -->    
 		  <li class="nav-item cta"><a href="#myLogin" class="nav-link"><span>로그인</span></a></li>&nbsp;&nbsp;      
 		             	<%@ include file="/member/login/loginmodal.jsp"%>
-          <li class="nav-item cta"><a href="${root}/members?act=mvregister&bcode=0&pg=1&key=&word=" class="nav-link"><span>회원가입</span></a></li>
+		             	
+          <li class="nav-item cta"><a href="${root}/member?act=mvregister&bcode=0&pg=1&key=&word=" class="nav-link"><span>회원가입</span></a></li>
           
           <!-- 로그인 -->
           <li class="nav-item cta dropdown">
           	<a href="" class="dropdown-toggle nav-link" data-toggle="dropdown"><span>마이페이지</span></a>
    		        <ul class="dropdown-menu">
-		          <li><a href="${root}/members?act=mvmyinfo&bcode=0&pg=1&key=&word=" class="dropdown-item">내 정보 확인</a></li>
-		          <li><a href="${root}/members?act=mvwritelist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 작성한 목록</a></li>
-		          <li><a href="${root}/members?act=mvwishlist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 찜한 목록</a></li>	
-		          <li><a href="${root}/members?act=mvmemberslist&bcode=0&pg=1&key=&word=" class="dropdown-item">회원관리</a></li>              
+		          <li><a href="${root}/member?act=mvmyinfo&bcode=0&pg=1&key=&word=" class="dropdown-item">내 정보 확인</a></li>
+		          <li><a href="${root}/member?act=mvwritelist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 작성한 목록</a></li>
+		          <li><a href="${root}/member?act=mvwishlist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 찜한 목록</a></li>	
+		          <li><a href="${root}/member?act=mvmemberslist&bcode=0&pg=1&key=&word=" class="dropdown-item">회원관리</a></li>              
 		        </ul>
           </li>&nbsp;&nbsp;
           <li class="nav-item cta"><a href="" class="nav-link"><span>로그아웃</span></a></li>

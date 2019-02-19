@@ -99,13 +99,52 @@ public class MemoDaoImpl implements MemoDao {
 
 	@Override
 	public void modifyMemo(MemoDto memoDto) {
-		// TODO Auto-generated method stub
-
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("update memo \n");
+			sql.append("set mcontent = ? \n");
+			sql.append("where mseq = ? \n");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1, memoDto.getMcontent());
+			pstmt.setInt(2, memoDto.getMseq());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt);
+		}
 	}
+
+	
 
 	@Override
 	public void deleteMemo(int mseq) {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql = new StringBuffer();
+			sql.append("delete memo \n");
+			sql.append("where mseq = ? \n");
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setInt(1, mseq);		
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBclose.close(conn, pstmt);
+		}
 
 	}
 

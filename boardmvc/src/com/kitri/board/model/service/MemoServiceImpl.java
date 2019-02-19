@@ -33,20 +33,17 @@ public class MemoServiceImpl implements MemoService {
 
 	@Override
 	public List<MemoDto> listMemo(int seq) {
-		// TODO Auto-generated method stub
 		return MemoDaoImpl.getMemoDao().listMemo(seq);
 	}
 
 	@Override
 	public void modifyMemo(MemoDto memoDto) {
-		// TODO Auto-generated method stub
-
+		MemoDaoImpl.getMemoDao().modifyMemo(memoDto);
 	}
 
 	@Override
 	public void deleteMemo(int mseq) {
-		// TODO Auto-generated method stub
-
+		MemoDaoImpl.getMemoDao().deleteMemo(mseq);
 	}
 
 }

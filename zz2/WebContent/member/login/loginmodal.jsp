@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="white_content" id=myLogin>
-        	<div>
+       <div>
 		<form class="login100-form validate-form">
 			<h4><span class="glyphicon glyphicon-lock" style="align-text:center;">로그인</span></h4>
 			<br><br>
@@ -40,7 +40,7 @@
 		    	</div>		
 			 </div>				
 			</form>
-		    	            <p align="left"><a href="#close">닫기</a></p>
+		    	            <p align="right"><a href="#close">닫기</a></p>
 		</div>
     </div>
 </body>

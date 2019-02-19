@@ -94,7 +94,7 @@
 [ Form ]*/
 .login100-form {
 	width: 100%;
-	padding: 30px;
+	padding: 20px;
 }
 
 .login100-form-title {
@@ -392,6 +392,7 @@
 	overflow: auto;	
 	max-width: 100%;
 	display: table;
+	
 }
 
 
