@@ -24,7 +24,7 @@ public class DBConnection {
 	
 	
 	public static Connection makeConnection() throws SQLException {	
-	return DriverManager.getConnection("jdbc:oracle:thin:@localhost:orcl","ora_user3","han3");
+	return DriverManager.getConnection("jdbc:oracle:thin:@localhost:orcl","ora_user2","han2");
 	
 	}
 }
