@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kitri.factory.BoardActionFactory;
 import com.kitri.util.BoardConstance;
 
 @WebServlet("/memo")
@@ -18,7 +19,9 @@ public class MemoController extends HttpServlet {
 		
 		String path = "/index.jsp";
 		
-		if("".equals(act)) {
+		String list = "";
+		if("writememo".equals(act)) {
+			list = BoardActionFactory.getMemoWriteAction().excute(request, response);
 			
 		} else if("".equals(act)) {
 			

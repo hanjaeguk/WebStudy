@@ -20,4 +20,7 @@ public interface MemberDao {
 	
 	// MemberDto login(String id,String pass); 
 	MemberDto login(Map<String,String> map); //나중에 마이바티스는 인자를 하나밖에 못받아서 이렇게 해줌!
+	
+	List<MemberDetailDto> memberList(Map<String,String> map);
+
 }

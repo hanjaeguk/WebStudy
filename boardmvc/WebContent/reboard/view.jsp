@@ -43,6 +43,25 @@ $(document).ready(function() {
 		$("#act").val("listarticle");
 		$("#commonForm").attr("action","${root}/reboard").submit();
 	});
+	
+	$("#memoBtn").click(function() {
+		var seq = "${article.seq}";
+		var mcontent = $("#mcontent").val();
+		var param = {"act" : "writememo", "seq" : seq, "mcontent" : mcontent};
+		$.ajax({
+			url : '${root}/memo',
+			type : 'POST',
+			data : param,
+			dataType : 'json',
+			success : function(){
+				
+			},
+			error : function(){
+				
+			},
+			
+		});
+	});
 });
 </script>
 
@@ -180,6 +199,36 @@ $(document).ready(function() {
 			src="${root}/img/board/icon_down.gif" border="0" align="absmiddle"
 			hspace="3"></a></td>
 	</tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td colspan="3" height="5" style="padding: 0px"></td>
+	</tr>
+	<tr>
+		<td class="bg_board_title_02" colspan="3" height="1"
+			style="overflow: hidden; padding: 0px"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="5" style="padding: 0px"></td>
+	</tr>
+	<tr>
+		<td colspan="2" height="30" style="padding: 10px">
+		<textarea id="mcontent" rows="4" cols="170"></textarea>
+		</td>
+		<td>
+		<c:if test="${userInfo != null}">		
+		<button id="memoBtn">작성</button>
+		</c:if>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" height="5" style="padding: 0px"></td>
+	</tr>
+	<tr>
+		<td class="bg_board_title_02" colspan="3" height="1"
+			style="overflow: hidden; padding: 0px"></td>
+	</tr>
+	<tbody id="memolist"></tbody>
 </table>
 </c:if>
 <c:if test="${article == null}">

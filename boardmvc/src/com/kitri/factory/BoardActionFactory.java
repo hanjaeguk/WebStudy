@@ -1,6 +1,10 @@
 package com.kitri.factory;
 
 import com.kitri.action.Action;
+import com.kitri.action.memo.MemoDeleteAction;
+import com.kitri.action.memo.MemoListAction;
+import com.kitri.action.memo.MemoModifyAction;
+import com.kitri.action.memo.MemoWriteAction;
 import com.kitri.action.reboard.ReboardListAction;
 import com.kitri.action.reboard.ReboardModifyAction;
 import com.kitri.action.reboard.ReboardMoveModifyAction;
@@ -20,6 +24,13 @@ public class BoardActionFactory {
 	private static Action reboardDeleteAction; 
 	private static Action reboardMoveReplyAction; 
 	
+	//댓글
+	
+	private static Action memoDeleteAction;
+	private static Action memoListAction;
+	private static Action memoModifyAction;
+	private static Action memoWriteAction;
+	
 	static {
 		reboardWriteAction = ReboardWriteAction.getReboardWriteAction();
 		reboardListAction = ReboardListAction.getReboardListAction();
@@ -29,9 +40,38 @@ public class BoardActionFactory {
 		reboardMoveModifyAction = ReboardMoveModifyAction.getReboardMoveModifyAction();
 		reboardMoveReplyAction = ReboardMoveReplyAction.getReboardMoveReply();
 		
+		memoDeleteAction = MemoDeleteAction.getMemoDeleteAction();
+		memoListAction = MemoListAction.getMemoListAction();
+		memoModifyAction = MemoModifyAction.getMemoModifyAction();
+		memoWriteAction = MemoWriteAction.getMemoWriteAction();
+		
 	}
 	
 	
+
+	public static Action getMemoDeleteAction() {
+		return memoDeleteAction;
+	}
+
+
+
+	public static Action getMemoListAction() {
+		return memoListAction;
+	}
+
+
+
+	public static Action getMemoModifyAction() {
+		return memoModifyAction;
+	}
+
+
+
+	public static Action getMemoWriteAction() {
+		return memoWriteAction;
+	}
+
+
 
 	public static Action getReboardMoveModifyAction() {
 		return reboardMoveModifyAction;
@@ -42,13 +82,6 @@ public class BoardActionFactory {
 	public static Action getReboardMoveReplyAction() {
 		return reboardMoveReplyAction;
 	}
-
-
-
-	public static void setReboardMoveReplyAction(Action reboardMoveReplyAction) {
-		BoardActionFactory.reboardMoveReplyAction = reboardMoveReplyAction;
-	}
-
 
 
 	public static Action getReboardWriteAction() {

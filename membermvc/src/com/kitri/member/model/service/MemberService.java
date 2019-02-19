@@ -15,6 +15,7 @@ public interface MemberService {
 	int modify(MemberDetailDto memberDetailDto); // 회원정보 수정
 	int delete(String id); // 회원탈퇴
 	
-	
 	MemberDto login(String id,String pass);
+	
+	List<MemberDetailDto> memberList(String key, String word);
 }

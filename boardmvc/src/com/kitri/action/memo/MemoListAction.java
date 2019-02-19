@@ -9,6 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.kitri.action.Action;
 
 public class MemoListAction implements Action {
+	
+	
+	private static Action memoListAction;
+	
+	static {
+		memoListAction = new MemoListAction();
+	}
+	
+	private MemoListAction() {}
+	
+
+
+	public static Action getMemoListAction() {
+		return memoListAction;
+	}
+
+
+
 
 	@Override
 	public String excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
