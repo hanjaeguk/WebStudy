@@ -59,14 +59,19 @@
 							<br><br>
 							<div class="row">
 								<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired" align="left" style="width:70%">
+								 
 									<span class="label-input100">아이디</span>
 										<input class="input100" type="text" name="username" placeholder="아이디입력">
 									<span class="focus-input100" data-symbol="&#xf206;"></span>
 								</div>
-								<div style="width:30%">
-								<br>
-								   <input type="button" value="중복검사" class="btn btn-primary"  onclick="javascript:openidcheck();" style="height: 50px; width: 100px;'">								
-								</div>	
+								<
+								<div class="icon d-flex justify-content-center align-items-center">
+														
+									<div class="col-lg-2">
+										<input type="button" value="중복체크" class="btn btn-primary" id="idcheckBtn" onclick="javascript:openidcheck();">
+									</div>
+								</div>
+								
 							</div>				
 							<br>
 							<div class="row">
@@ -103,7 +108,8 @@
 							</div>
 							
 							
-							 
+
+							
 							<br><br>
 							<div class="d-flex justify-content-center mb-3">
 						    	<div class="p-2">
