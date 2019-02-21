@@ -7,56 +7,71 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import com.kokkok.member.model.MemberDto;
+import com.kokkok.member.model.service.MemberService;
+import com.kokkok.member.model.service.MemberServiceImpl;
 import com.kokkok.util.*;
 
 @WebServlet("/member")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	MemberService memberService;
+	
+	public void init() {
+		memberService = new MemberServiceImpl();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		String act = request.getParameter("act");
 
-		int bcode = Validator.notNumberToZero((request.getParameter("bcode")));
-		int pg = Validator.notNumberToOne((request.getParameter("pg")));
-		String key = Validator.nullToBlank(request.getParameter("key"));
-		String word = Validator.nullToBlank(request.getParameter("word"));
-
-		String queryString = "?bcode=" + bcode + "&pg=" + pg + "&key=" + key + "&word="
-				+ URLEncoder.encode(word, BoardConstance.ENCODER);
 
 		String path = "/index.jsp";
 		if ("mvregister".equals(act)) {
-			path = "/member/join/register.jsp" + queryString;
+			path = "/member/join/register.jsp";
 			PageMove.redirect(request, response, path);
 
 		} else if ("mvmyinfo".equals(act)) {
-			path = "/member/myMenu/myInfo/list.jsp" + queryString;
+			path = "/member/myMenu/myInfo/list.jsp";
 			PageMove.redirect(request, response, path);
 
 		} else if ("mvwritelist".equals(act)) {
-			path = "/member/myMenu/myWrite/list.jsp" + queryString;
+			path = "/member/myMenu/myWrite/list.jsp";
 			PageMove.redirect(request, response, path);
 
 		} else if ("mvwishlist".equals(act)) {
-			path = "/member/myMenu/myWish/list.jsp" + queryString;
+			path = "/member/myMenu/myWish/list.jsp";
 			PageMove.redirect(request, response, path);
 		} else if ("mvidcheck".equals(act)) {
-
+			path = "/member/join/idcheck.jsp";
+			PageMove.redirect(request, response, path);
 		} else if ("".equals(act)) {
 
 		} else if ("".equals(act)) {
 
-		}
-		/// admin
-		else if ("register".equals(act)) {
+		} else if ("register".equals(act)) {
 
-		}
+			MemberDto memberDto = new MemberDto();
+			memberDto.setName(request.getParameter("name"));
+			memberDto.setId(request.getParameter("id"));
+			memberDto.setPass(request.getParameter("pass"));
+			memberDto.setEmail(request.getParameter("email"));
 
-		else if ("mvmemberslist".equals(act)) {
 
-			path = "/admin/members/list.jsp" + queryString;
+			int cnt = memberService.register(memberDto);
+			if (cnt != 0) {
+				path = "/member/join/registerok.jsp";
+				request.setAttribute("registerInfo", memberDto);
+				PageMove.forward(request, response, path); // 정보를 가져가야되니깐 forward
+			} else {
+				path = "/member/join/registerfail.jsp";
+				PageMove.redirect(request, response, path);
+			}
+			
+		} else if ("mvmemberslist".equals(act)) {
+			path = "/admin/members/list.jsp";
 			PageMove.redirect(request, response, path);
 
 		} else if ("".equals(act)) {

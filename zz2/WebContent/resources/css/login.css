@@ -327,6 +327,20 @@
 	}
 }
 
+
+#idcheckBtn{
+	border-radius: 0px;
+	font-size: 0.9rem;
+}
+
+.idcheckDiv{
+    width: 30%;
+    align-self: center;
+    padding-top: 10%;
+    padding-left: 2%;
+}
+
+
 /*//////////////////////////////////////////////////////////////////
 [ Social item ]*/
 .login100-social-item {

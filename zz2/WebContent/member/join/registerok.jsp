@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kokkok.member.model.MemberDto" %>
+<%
+
+String root = request.getContextPath();
+
+MemberDto memberDto = (MemberDto) request.getAttribute("registerInfo");
+if(memberDto != null){
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,13 +35,13 @@
 							</span>
 							<br>
 								<span class="label-input100">
-								000님 반갑습니다.<br>로그인후 이용해주세요.
+								<%=memberDto.getName()%>님 반갑습니다.<br>로그인후 이용해주세요.
 								</span>
 							<br><br><br>
 							<div class="d-flex justify-content-center mb-3">
 						    	<div class="p-2">
-						    		<input type="submit" value="로그인" class="btn btn-primary py-3 px-4">
-						    		<input type="submit" value="닫기" class="btn btn-primary py-3 px-4">
+						    		<input type="button" value="로그인" class="btn btn-primary">
+						    		<input type="button" value="메인화면" class="btn btn-primary" onclick="location.href='${root}/index.jsp'">
 						    	</div>			    
 							</div>				
 								
@@ -58,3 +66,13 @@
 <%@ include file="/include/arrowup.jsp"%>
 </body>
 </html>
+<%
+}else{
+%>
+<script>
+alert("잘못된 URL접근입니다.")
+location.href = "<%=root%>/index.jsp"
+</script>
+<%
+}
+%>	

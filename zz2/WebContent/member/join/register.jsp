@@ -15,17 +15,20 @@
 			function register(){
 				//나중에 정규표현식 적용!!
 				//if(document.joinform.name.value == ""){
-				if(document.getElementById("name").value.trim().length == 0){
-					alert("이름입력!!")
+				if(document.getElementById("id").value.trim().length == 0){
+					alert("아이디입력!!")
 					return;					
-				}else if(document.getElementById("id").value.trim().length == 0){
-					alert("ID입력!!")
+				}else if(document.getElementById("name").value.trim().length == 0){
+					alert("이름입력!!")
 					return;			
 				}else if(document.getElementById("pass").value.trim().length == 0){
 					alert("비밀번호입력!!")
 					return;			
 				}else if(document.getElementById("pass").value != document.getElementById("passcheck").value){
 					alert("비밀번호확인!!")
+					return;			
+				}else if(document.getElementById("email").value.trim().length == 0){
+					alert("이메일 입력!!")
 					return;			
 				}else{
 					document.getElementById("registerform").setAttribute("action","${root}/member");
@@ -44,40 +47,37 @@
 
     <div class="hero-wrap js-fullheight" style="background-image: url('${root}/resources/images/bg_4.jpg')">
       <div class="overlay"></div>
-      <div class="container">
+      <div class="container" o>
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">  
             
 		  	<br><br>
-		  	<div class="container-login100" style="background-image: ;">
+		  	<div class="container-login100">
 					<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-						<form class="login100-form" id="registerform" method="post" action="">
+						<form class="login100-form" name="registerform" id="registerform" method="post" action="">
 								<input type="hidden" name="act" value="register">
 							<span class="login100-form-title p-b-49">
 								회원가입
 							</span>
 							<br><br>
 							<div class="row">
+	
 								<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired" align="left" style="width:70%">
-								 
 									<span class="label-input100">아이디</span>
-										<input class="input100" type="text" name="username" placeholder="아이디입력">
+										<input class="input100" type="text" id="id" name="id" placeholder="아이디입력">
 									<span class="focus-input100" data-symbol="&#xf206;"></span>
 								</div>
-								<
-								<div class="icon d-flex justify-content-center align-items-center">
-														
-									<div class="col-lg-2">
-										<input type="button" value="중복체크" class="btn btn-primary" id="idcheckBtn" onclick="javascript:openidcheck();">
-									</div>
-								</div>
+								<div class="idcheckDiv">
+									<input type="button" value="중복체크" class="btn btn-primary" id="idcheckBtn" onclick="javascript:openidcheck();">
+								</div>				
+								
 								
 							</div>				
 							<br>
 							<div class="row">
 								<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired" align="left">
 									<span class="label-input100">이름</span>
-										<input class="input100" type="text" name="username" placeholder="이름입력">
+										<input class="input100" type="text" id="name" name="name" placeholder="이름입력">
 									<span class="focus-input100" data-symbol="&#xf203;"></span>
 								</div>
 							</div>
@@ -86,7 +86,7 @@
 							<div class="row">
 								<div class="wrap-input100 validate-input" data-validate="Password is required" align="left">
 									<span class="label-input100">비밀번호</span>
-									<input class="input100" type="password" name="pass" placeholder="비밀번호입력">
+									<input class="input100" type="password" id="pass" name="pass" placeholder="비밀번호입력">
 									<span class="focus-input100" data-symbol="&#xf190;"></span>
 								</div>
 							</div>
@@ -94,7 +94,7 @@
 							<div class="row">
 								<div class="wrap-input100 validate-input" data-validate="Password is required" align="left">
 									<span class="label-input100">비밀번호확인</span>
-									<input class="input100" type="password" name="pass" placeholder="비밀번호 재입력">
+									<input class="input100" type="password" id="passcheck" name="passcheck" placeholder="비밀번호 재입력">
 									<span class="focus-input100" data-symbol="&#xf191;"></span>
 								</div>
 							</div>
@@ -102,7 +102,7 @@
 							<div class="row">
 								<div class="wrap-input100 validate-input" data-validate="Password is required" align="left">
 									<span class="label-input100">이메일</span>
-									<input class="input100" type="text" name="pass" placeholder="이메일입력">
+									<input class="input100" type="text" id= "email" name="email" placeholder="이메일입력">
 									<span class="focus-input100" data-symbol="&#xf15a;"></span>
 								</div>
 							</div>
@@ -111,12 +111,19 @@
 
 							
 							<br><br>
+
+
 							<div class="d-flex justify-content-center mb-3">
-						    	<div class="p-2">
-						    		<input type="button" value="회원가입" class="btn btn-primary py-3 px-4" onclick="javascript:register();">
-						    		<input type="button" value="취소" class="btn btn-primary py-3 px-4" onclick="location.href='${root}/index.jsp'">
-						    	</div>			    
-							</div>				
+								<div class="col-lg-5">
+						    		<input type="button" value="회원가입" class="btn btn-primary" style="width: 70%;" onclick="javascript:register();">
+								</div>
+							
+								<div class="col-lg-5">
+						    		<input type="button" value="취소" class="btn btn-primary" style="width: 70%;" onclick="location.href='${root}/index.jsp'">
+								</div>
+							</div>		
+						
+
 								
 							</form>
 						</div>

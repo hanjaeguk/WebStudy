@@ -2,9 +2,17 @@ package com.kokkok.member.model.service;
 
 import java.util.List;
 
+import com.kokkok.member.model.dao.MemberDaoImpl;
 import com.kokkok.member.model.MemberDto;
+import com.kokkok.member.model.dao.MemberDao;
 
 public class MemberServiceImpl implements MemberService{
+	
+	private MemberDao memberDao;
+	
+	public MemberServiceImpl(){
+		memberDao = new MemberDaoImpl();
+	}
 
 	@Override
 	public int idCheck(String id) {
@@ -14,8 +22,8 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int register(MemberDto memberDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return memberDao.register(memberDto);
 	}
 
 	@Override
