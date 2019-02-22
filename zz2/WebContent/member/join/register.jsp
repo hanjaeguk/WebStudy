@@ -5,6 +5,7 @@
 <head>
 <title>Insert title here</title>
 <%@ include file="/include/link.jsp"%>
+<%@ include file="/include/loader.jsp"%>   
 <link rel="stylesheet" href="${root}/resources/css/login.css">
 <link rel="stylesheet" href="${root}/resources/fonts/iconic/css/material-design-iconic-font.min.css">
 	<head>
@@ -138,8 +139,7 @@
 
 
 
-<%@ include file="/include/footer.jsp"%>
-<%@ include file="/include/loader.jsp"%>    
+<%@ include file="/include/footer.jsp"%> 
 <%@ include file="/include/arrowup.jsp"%>
 </body>
 </html>

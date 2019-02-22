@@ -401,13 +401,18 @@
 	width: auto; 
 	height: 40%;
 	padding: 16px;
-	border: 5px solid green;
+	border: 5px solid red;
 	background-color: white;
 	overflow: auto;	
 	max-width: 100%;
 	display: table;
+	z-index: 1;
 	
 }
+
+/**********************************************/
+
+
 
 
 

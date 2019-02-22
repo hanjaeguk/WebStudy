@@ -9,6 +9,9 @@
   <body>
   <%@ include file="/include/nav.jsp"%>
     <!-- 대문 -->
+    <div>
+     
+    
     <div class="hero-wrap js-fullheight" style="background-image: url('${root}/resources/images/bg_1.jpg')">
       <div class="overlay"></div>
       <div class="container">
@@ -25,7 +28,7 @@
 	                <div class="select-wrap one-two">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 	                    <select name="" id="" class="form-control" placeholder="Keyword search">
-	                      <option value="">전체</option>
+	                      <option value="">전체12</option>
 	                      <option value="">여행 후기</option>
 	                      <option value="">여행 정보</option>
 	                      <option value="">커뮤니티</option>
@@ -188,6 +191,7 @@
     	</div>
     </section>
 
+</div>
 
     
 <!-- 리뷰 섹션 -->
