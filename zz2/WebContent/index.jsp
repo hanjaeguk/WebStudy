@@ -4,7 +4,8 @@
 <html>
 <head>
     <title>KokKok</title>
-  	<%@ include file="/include/link.jsp"%> 	  	
+  	<%@ include file="/include/link.jsp"%> 	  
+  		<%@ include file="/include/loader.jsp"%>    	
 </head>
   <body>
   <%@ include file="/include/nav.jsp"%>
@@ -285,7 +286,7 @@
       </div>
     </section>               
 	<%@ include file="/include/footer.jsp"%>
-	<%@ include file="/include/loader.jsp"%>    
+
 	<%@ include file="/include/arrowup.jsp"%>
   </body>
 </html>
