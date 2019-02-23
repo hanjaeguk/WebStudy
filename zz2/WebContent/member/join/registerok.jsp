@@ -13,6 +13,7 @@ if(memberDto != null){
 <head>
 <title>Insert title here</title>
 <%@ include file="/include/link.jsp"%>
+<%@ include file="/include/loader.jsp"%>   
 </head>
 <body>
 <%@ include file="/include/nav.jsp"%>
@@ -54,15 +55,8 @@ if(memberDto != null){
         </div>
       </div>
 
-    <section class="ftco-section bg-light">
-    
 
-         
-    </section>
-
-
-<%@ include file="/include/footer.jsp"%>
-<%@ include file="/include/loader.jsp"%>    
+<%@ include file="/include/footer.jsp"%> 
 <%@ include file="/include/arrowup.jsp"%>
 </body>
 </html>

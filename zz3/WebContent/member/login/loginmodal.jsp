@@ -2,21 +2,48 @@
 	pageEncoding="UTF-8"%>
 
 
+<style>
+.modal {
+        text-align: center;
+}
+ 
+@media screen and (min-width: 768px) { 
+        .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+        }
+}
+ 
+.modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+        width: 350px;
+        
+}
 
+
+
+</style>
 <link rel="stylesheet" href="${root}/resources/css/login.css">
 <link rel="stylesheet"
 	href="${root}/resources/fonts/iconic/css/material-design-iconic-font.min.css">
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myLoginModal" role="dialog">
 	<div class="modal-dialog">
 
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div>
 				<form class="login100-form validate-form">
-					<h4>
-						<span class="glyphicon glyphicon-lock" style="align-text: center;">로그인</span>
-					</h4>
+					<div class="loginModalHead" align="center">
+					<br>
+						<h2>
+							<span class="glyphicon glyphicon-lock">로그인</span>
+						</h2>
+					</div>
 					<br>
 					<br>
 					<div class="wrap-input100 validate-input m-b-23"
@@ -36,7 +63,7 @@
 					<div class="text-right p-t-8 p-b-31">
 						<a href="#"> 비밀번호를 잊으셨나요?? </a>
 					</div>
-
+					<br>
 					<div class="d-flex justify-content-center mb-3">
 						<div class="p-2">
 							<input type="submit" value="로그인"
