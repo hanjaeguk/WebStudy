@@ -1,6 +1,8 @@
 package com.kokkok.member.model.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.kokkok.member.model.dao.MemberDaoImpl;
 import com.kokkok.member.model.MemberDto;
@@ -16,8 +18,8 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int idCheck(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return memberDao.idCheck(id);
 	}
 
 	@Override
@@ -28,14 +30,12 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDto getMember(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return memberDao.getMember(id);
 	}
 
 	@Override
 	public int modify(MemberDto memberDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return memberDao.modify(memberDto);
 	}
 
 	@Override
@@ -46,14 +46,19 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDto login(String id, String pass) {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String, String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("pass", pass);
+		
+		return memberDao.login(map);
 	}
 
 	@Override
 	public List<MemberDto> memberList(String key, String word) {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String, String> map = new HashMap<>();
+		map.put("key", key);
+		map.put("word", word);		
+		return memberDao.memberList(map);
 	}
 
 }

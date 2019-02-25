@@ -6,6 +6,17 @@ public class MemberDto {
 	private String pass;
 	private String email;
 	private String joinDate;
+	private int adminCode;
+	
+	
+
+	public int getAdminCode() {
+		return adminCode;
+	}
+
+	public void setAdminCode(int adminCode) {
+		this.adminCode = adminCode;
+	}
 
 	public String getId() {
 		return id;
@@ -46,5 +57,13 @@ public class MemberDto {
 	public void setJoinDate(String joinDate) {
 		this.joinDate = joinDate;
 	}
+
+	@Override
+	public String toString() {
+		return "MemberDto [id=" + id + ", name=" + name + ", pass=" + pass + ", email=" + email + ", joinDate="
+				+ joinDate + "]";
+	}
+	
+	
 
 }

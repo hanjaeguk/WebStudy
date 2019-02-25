@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.kokkok.member.model.MemberDto" %>
 <%
-
-String root = request.getContextPath();
-
 MemberDto memberDto = (MemberDto) request.getAttribute("registerInfo");
 if(memberDto != null){
 
@@ -13,7 +10,8 @@ if(memberDto != null){
 <head>
 <title>Insert title here</title>
 <%@ include file="/include/link.jsp"%>
-<%@ include file="/include/loader.jsp"%>   
+<%@ include file="/include/loader.jsp"%>
+
 </head>
 <style>
 .ftco-navbar-light {
@@ -45,8 +43,9 @@ if(memberDto != null){
 							<br><br><br>
 							<div class="d-flex justify-content-center mb-3">
 						    	<div class="p-2">
-						    		<input type="button" value="로그인" class="btn btn-primary" data-toggle="modal" data-target="#myLoginModal">
-						    		<input type="button" value="메인화면" class="btn btn-primary" onclick="location.href='${root}/index.jsp'">
+						    		<input type="button" value="로그인" class="btn btn-primary py-3 px-4" data-toggle="modal" data-target="#myLoginModal">
+						    		&nbsp;&nbsp;&nbsp;&nbsp;
+						    		<input type="button" value="메인화면" class="btn btn-primary py-3 px-4" onclick="location.href='${root}/index.jsp'">
 						    	</div>			    
 							</div>				
 								
@@ -69,7 +68,7 @@ if(memberDto != null){
 %>
 <script>
 alert("잘못된 URL접근입니다.")
-location.href = "<%=root%>/index.jsp"
+location.href = "${root}/index.jsp"
 </script>
 <%
 }

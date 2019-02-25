@@ -2,6 +2,7 @@ package com.kokkok.member.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +68,40 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public MemberDto login(Map<String, String> map) {
-		return null;
+		MemberDto memberDto = null;
+		
+
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		try {
+			conn = DBConnection.makeConnection();
+			StringBuffer sql= new StringBuffer();
+			sql.append("select id, name, email,joindate,admincode \n");
+			sql.append("from member \n");
+			sql.append("where id = ? and pass = ?");		
+			
+			pstmt = conn.prepareStatement(sql.toString());
+			pstmt.setString(1, map.get("id"));		
+			pstmt.setString(2, map.get("pass"));		
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				memberDto = new MemberDto();
+				memberDto.setId(rs.getString("id"));
+				memberDto.setName(rs.getString("name"));
+				memberDto.setEmail(rs.getString("email"));
+				memberDto.setJoinDate(rs.getString("joindate"));
+				memberDto.setAdminCode(rs.getInt("admincode"));
+			}			
+		}catch(Exception e) {
+			memberDto = null;
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}		
+		return memberDto;
 	}
 
 	@Override
