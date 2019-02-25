@@ -71,7 +71,6 @@ public class MemberController extends HttpServlet {
 			String id = request.getParameter("id");
 			String pass = request.getParameter("pass");
 			MemberDto memberDto = memberService.login(id, pass);
-			System.out.println(memberDto.toString());
 			if (memberDto != null) {// 로그인 됬을때
 				////////////////////////// session 설정/////////////////////////////////////////
 				System.out.println(memberDto.toString());
@@ -90,9 +89,7 @@ public class MemberController extends HttpServlet {
 			PageMove.redirect(request, response, path);
 			path = "/index.jsp";
 			
-		} else if ("mvmemberslist".equals(act)) {
-			path = "/admin/members/list.jsp";
-			PageMove.redirect(request, response, path);
+		} else if ("".equals(act)) {
 
 		} else if ("".equals(act)) {
 

@@ -91,7 +91,7 @@
 					<div class="d-flex justify-content-center mb-3">
 						<div class="p-2">
 							<input type="button" value="로그인"
-								class="btn btn-primary py-3 px-4" onclick="javascript:login();">&nbsp;&nbsp;&nbsp;&nbsp;
+								class="btn btn-primary py-3 px-4" data-toggle="modal" data-target="#login" onclick="javascript:login();">&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="button" value="회원가입" class="btn btn-primary py-3 px-4" onclick="location.href='${root}/member?act=mvregister'">
 						</div>
 					</div>

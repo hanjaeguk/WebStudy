@@ -12,7 +12,7 @@ import com.kokkok.member.model.service.MemberService;
 import com.kokkok.member.model.service.MemberServiceImpl;
 import com.kokkok.util.*;
 
-@WebServlet("/member")
+@WebServlet("/member2")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -64,15 +64,13 @@ public class MemberController extends HttpServlet {
 			if (cnt != 0) {
 				path = "/member/join/registerok.jsp";
 				request.setAttribute("registerInfo", memberDto);
-				PageMove.forward(request, response, path); // 정보를 가져가야되니깐 forward
+				PageMove.forward(request, response, path); // �젙蹂대�� 媛��졇媛��빞�릺�땲源� forward
 			} else {
 				path = "/member/join/registerfail.jsp";
 				PageMove.redirect(request, response, path);
 			}
 			
-		} else if ("mvmemberslist".equals(act)) {
-			path = "/admin/members/list.jsp";
-			PageMove.redirect(request, response, path);
+		} else if ("".equals(act)) {
 
 		} else if ("".equals(act)) {
 
