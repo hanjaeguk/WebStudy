@@ -68,12 +68,12 @@ public class MemberController extends HttpServlet {
 			}
 
 		} else if ("login".equals(act)) {
-			String id = request.getParameter("id");
-			String pass = request.getParameter("pass");
+			String id = request.getParameter("loginid");
+			String pass = request.getParameter("loginpass");
 			MemberDto memberDto = memberService.login(id, pass);
 			if (memberDto != null) {// 로그인 됬을때
-				////////////////////////// session 설정/////////////////////////////////////////
 				System.out.println(memberDto.toString());
+				////////////////////////// session 설정/////////////////////////////////////////
 				HttpSession session = request.getSession();
 				session.setAttribute("userInfo", memberDto);
 				path = "/index.jsp";

@@ -16,20 +16,22 @@
 	function register() {
 		//나중에 정규표현식 적용!!
 		//if(document.joinform.name.value == ""){
-		if (document.getElementById("id").value.trim().length == 0) {
+			
+			
+		if (document.getElementById("userid").value.trim().length == 0) {
 			alert("아이디입력!!")
 			return;
-		} else if (document.getElementById("name").value.trim().length == 0) {
+		} else if (document.getElementById("username").value.trim().length == 0) {
 			alert("이름입력!!")
 			return;
-		} else if (document.getElementById("pass").value.trim().length == 0) {
+		} else if (document.getElementById("userpass").value.trim().length == 0) {
 			alert("비밀번호입력!!")
 			return;
-		} else if (document.getElementById("pass").value != document
+		} else if (document.getElementById("userpass").value != document
 				.getElementById("passcheck").value) {
 			alert("비밀번호확인!!")
 			return;
-		} else if (document.getElementById("email").value.trim().length == 0) {
+		} else if (document.getElementById("useremail").value.trim().length == 0) {
 			alert("이메일 입력!!")
 			return;
 		} else {
@@ -78,7 +80,7 @@
 										data-validate="Username is reauired" align="left"
 										style="width: 70%">
 										<span class="label-input100">아이디</span> <input
-											class="input100" type="text" id="id" name="id"
+											class="input100" type="text" id="userid" name="userid"
 											placeholder="아이디입력"/> <span class="focus-input100"
 											data-symbol="&#xf206;"></span>
 									</div>
@@ -94,7 +96,7 @@
 									<div class="wrap-input100 validate-input m-b-23"
 										data-validate="Username is reauired" align="left">
 										<span class="label-input100">이름</span> <input class="input100"
-											type="text" id="name" name="name" placeholder="이름입력">
+											type="text" id="username" name="username" placeholder="이름입력">
 										<span class="focus-input100" data-symbol="&#xf203;"></span>
 									</div>
 								</div>
@@ -104,7 +106,7 @@
 									<div class="wrap-input100 validate-input"
 										data-validate="Password is required" align="left">
 										<span class="label-input100">비밀번호</span> <input
-											class="input100" type="password" id="pass" name="pass"
+											class="input100" type="password" id="userpass" name="userpass"
 											placeholder="비밀번호입력"> <span class="focus-input100"
 											data-symbol="&#xf190;"></span>
 									</div>
@@ -124,7 +126,7 @@
 									<div class="wrap-input100 validate-input"
 										data-validate="Password is required" align="left">
 										<span class="label-input100">이메일</span> <input
-											class="input100" type="text" id="email" name="email"
+											class="input100" type="text" id="useremail" name="useremail"
 											placeholder="이메일입력"> <span class="focus-input100"
 											data-symbol="&#xf15a;"></span>
 									</div>
