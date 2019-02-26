@@ -1,29 +1,30 @@
+<%@page import="com.kokkok.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kokkok.member.model.MemberDto"%>
+    pageEncoding="UTF-8"%>
 <%
 String root = request.getContextPath();
 
-String id = (String)request.getAttribute("id");
+String id = (String)request.getAttribute("checkid");
+
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%=root%>/css/style.css" type="text/css">
 <script type="text/javascript">
 function idcheck(){
-	if(document.getElementById("id").value == "") {
+	if(document.getElementById("checkid").value.trim().length == 0) {
 		alert("검색 아이디 입력!");
 		return;
 	} else {
-		document.idform.action = "<%=root%>/user";
+		document.idform.action = "<%=root%>/member";
 		document.idform.submit();
 	}
 }
 
 function iduse(id){
-	opener.document.getElementById("id").value = id;
+	opener.document.getElementById("userid").value = id;
 	self.close();
 }
 </script>
@@ -36,7 +37,7 @@ function iduse(id){
 <hr>
 	<div class="div1" align="left">검색할 아이디를 입력하세요
 		<div class="div2">
-			<input type="text" name="id" id="id" onkeypress="javascript:if(event.keyCode == 13){ idcheck(); }">
+			<input type="text" name="checkid" id="checkid" onkeypress="javascript:if(event.keyCode == 13){ idcheck(); }">
 			<input type="button" value="검색" onclick="javascript:idcheck();">
 			<%
 				if(id == null){
@@ -58,6 +59,7 @@ function iduse(id){
 					%>
 					<div>
 					<%=id%>는 사용할수 있습니다.<br>사용하시겠습니까?<br>
+					
 					<input type="button" value="사용" onclick="javascript:iduse('<%=id%>');">
 					</div>
 					<%

@@ -7,7 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-
 import com.kokkok.member.model.MemberDto;
 import com.kokkok.member.model.service.MemberService;
 import com.kokkok.member.model.service.MemberServiceImpl;
@@ -50,10 +49,10 @@ public class MemberController extends HttpServlet {
 		} else if ("register".equals(act)) {
 
 			MemberDto memberDto = new MemberDto();
-			memberDto.setName(request.getParameter("name"));
-			memberDto.setId(request.getParameter("id"));
-			memberDto.setPass(request.getParameter("pass"));
-			memberDto.setEmail(request.getParameter("email"));
+			memberDto.setName(request.getParameter("username"));
+			memberDto.setId(request.getParameter("userid"));
+			memberDto.setPass(request.getParameter("userpass"));
+			memberDto.setEmail(request.getParameter("useremail"));
 
 			int cnt = memberService.register(memberDto);
 			System.out.println(cnt);
@@ -61,7 +60,7 @@ public class MemberController extends HttpServlet {
 			if (cnt != 0) {
 				path = "/member/join/registerok.jsp";
 				request.setAttribute("registerInfo", memberDto);
-				PageMove.forward(request, response, path); // �젙蹂대�� 媛��졇媛��빞�릺�땲源� forward
+				PageMove.forward(request, response, path); // 占쎌젟癰귣�占쏙옙 揶쏉옙占쎌죬揶쏉옙占쎈튊占쎈┷占쎈빍繹먲옙 forward
 			} else {
 				path = "/member/join/registerfail.jsp";
 				PageMove.redirect(request, response, path);
@@ -71,9 +70,9 @@ public class MemberController extends HttpServlet {
 			String id = request.getParameter("loginid");
 			String pass = request.getParameter("loginpass");
 			MemberDto memberDto = memberService.login(id, pass);
-			if (memberDto != null) {// 로그인 됬을때
+			if (memberDto != null) {// 濡쒓렇�씤 �맟�쓣�븣
 				System.out.println(memberDto.toString());
-				////////////////////////// session 설정/////////////////////////////////////////
+				////////////////////////// session �꽕�젙/////////////////////////////////////////
 				HttpSession session = request.getSession();
 				session.setAttribute("userInfo", memberDto);
 				path = "/index.jsp";
@@ -83,14 +82,22 @@ public class MemberController extends HttpServlet {
 			PageMove.forward(request, response,path);
 		} else if ("logout".equals(act)) {
 			HttpSession session = request.getSession();
-//			session.setAttribute("userInfo", null); 안좋은방법
-//			session.removeAttribute("userInfo"); 일반적인방법
-			session.invalidate();// 세션안에 있는거 싹다 지워라
+//			session.setAttribute("userInfo", null); �븞醫뗭�諛⑸쾿
+//			session.removeAttribute("userInfo"); �씪諛섏쟻�씤諛⑸쾿
+			session.invalidate();// �꽭�뀡�븞�뿉 �엳�뒗嫄� �떦�떎 吏��썙�씪
 			PageMove.redirect(request, response, path);
 			path = "/index.jsp";
 			
-		} else if ("".equals(act)) {
-
+		} else if ("mvidcheck".equals(act)) {
+			path =  "/member/join/idcheck.jsp";
+			PageMove.redirect(request, response, path);
+		} else if ("idcheck".equals(act)) {
+			String id = request.getParameter("checkid");
+			int idCnt = memberService.idCheck(id);
+			request.setAttribute("checkid", id);
+			request.setAttribute("idCnt", idCnt);
+			path =  "/member/join/idcheck.jsp";
+			PageMove.forward(request, response, path);
 		} else if ("".equals(act)) {
 
 		} else {

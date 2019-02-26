@@ -17,7 +17,6 @@
 		//나중에 정규표현식 적용!!
 		//if(document.joinform.name.value == ""){
 			
-			
 		if (document.getElementById("userid").value.trim().length == 0) {
 			alert("아이디입력!!")
 			return;
@@ -42,11 +41,7 @@
 	}
 
 	function openidcheck() {
-		window
-				.open(
-						"${root}/member?act=mvidcheck",
-						"idcheck",
-						"top=200, left=300, width=400, height=350, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
+		window.open("${root}/member?act=mvidcheck","idcheck","top=200, left=300, width=400, height=350, menubar=no, status=no, toolbar=no, location=no, scrollbars=no");
 	}
 </script>
 </head>
@@ -81,7 +76,7 @@
 										style="width: 70%">
 										<span class="label-input100">아이디</span> <input
 											class="input100" type="text" id="userid" name="userid"
-											placeholder="아이디입력"/> <span class="focus-input100"
+											placeholder="중복체크를 통해 입력해주세요." readonly="readonly"/> <span class="focus-input100"
 											data-symbol="&#xf206;"></span>
 									</div>
 									<div class="idcheckDiv">

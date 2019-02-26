@@ -15,7 +15,44 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int idCheck(String id) {
-		return 0;
+		int cnt = 1; // 議댁옱X �궗�슜媛��뒫
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DBConnection.makeConnection();
+//			String sql = "select id \r\n" + 
+//						"from member\r\n" + 
+//						"where id=?";
+		
+//			sql.append("select id \r\n");
+//			sql.append("from member\r\n");
+//			sql.append("where id=?");
+
+			StringBuffer sql = new StringBuffer();
+			sql.append("select count(id) \r\n");
+			sql.append("from member\r\n");
+			sql.append("where id=?");
+
+			pstmt = conn.prepareStatement(sql.toString());
+
+			pstmt.setString(1, id);
+
+			rs = pstmt.executeQuery();
+			rs.next();
+//			if(rs.next()) {
+//				cnt = 1; 
+//			}
+			cnt = rs.getInt(1); 
+		} catch (SQLException e) {
+			cnt = 1;
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+
+		return cnt;
 	}
 
 	@Override

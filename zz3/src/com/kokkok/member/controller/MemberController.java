@@ -50,8 +50,8 @@ public class MemberController extends HttpServlet {
 		} else if ("register".equals(act)) {
 
 			MemberDto memberDto = new MemberDto();
-			memberDto.setName(request.getParameter("name"));
-			memberDto.setId(request.getParameter("id"));
+			memberDto.setName(request.getParameter("username"));
+			memberDto.setId(request.getParameter("userid"));
 			memberDto.setPass(request.getParameter("pass"));
 			memberDto.setEmail(request.getParameter("email"));
 
