@@ -6,6 +6,9 @@ import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import javax.servlet.jsp.PageContext;
+
+import org.apache.jasper.tagplugins.jstl.core.Param;
 
 import com.kokkok.member.model.MemberDto;
 import com.kokkok.member.model.service.MemberService;
@@ -75,11 +78,11 @@ public class MemberController extends HttpServlet {
 				////////////////////////// session �꽕�젙/////////////////////////////////////////
 				HttpSession session = request.getSession();
 				session.setAttribute("userInfo", memberDto);
-				path = "/index.jsp";
+				response.sendRedirect(request.getHeader("referer"));
 			}else {
 				path = "/member/join/register.jsp";
 			}
-			PageMove.forward(request, response,path);
+			PageMove.redirect(request, response, path);
 		} else if ("logout".equals(act)) {
 			HttpSession session = request.getSession();
 //			session.setAttribute("userInfo", null); �븞醫뗭�諛⑸쾿
