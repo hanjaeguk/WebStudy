@@ -61,7 +61,7 @@
 			<div class="row">	
 				<div class="col-lg-3 sidebar ftco-animate">
 					<div class="sidebar-wrap bg-light ftco-animate">
-					<h3 class="heading mb-4 infoItemsTitle">리뷰 검색</h3>
+					<h3 class="heading mb-4 infoItemsTitle">리뷰 검색123123</h3>
 						<form action="#">
 						<div class="fields">							
 							<div class="form-group infoitems infoKeyword">

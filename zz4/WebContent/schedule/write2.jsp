@@ -332,7 +332,10 @@
 	        <div class="" id="itemBoxWrap"></div>
 	        
 	        <br>  
-			<div><h2 class="mb-3">2일차</h2><hr></div>
+			<div><h2 class="mb-3">2일차</h2>
+			<input type="button" value="로그인"
+								class="btn btn-primary py-3 px-4" style="background-color: #f8f9fa; color: #dc3545">
+			<hr></div>
 			<div><h2 class="mb-3">55일차</h2><hr></div>	       
             
 			</div>

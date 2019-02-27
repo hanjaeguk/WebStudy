@@ -3,7 +3,6 @@
 <%
 MemberDto memberDto = (MemberDto) request.getAttribute("registerInfo");
 if(memberDto != null){
-
 %>
 <!DOCTYPE html>
 <html>

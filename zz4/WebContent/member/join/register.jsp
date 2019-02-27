@@ -69,6 +69,7 @@
 								method="post" action="">
 								<input type="hidden" name="act" value="register"> <span
 									class="login100-form-title p-b-49"> 회원가입 </span> <br> <br>
+									
 								<div class="row">
 
 									<div class="wrap-input100 validate-input m-b-23"

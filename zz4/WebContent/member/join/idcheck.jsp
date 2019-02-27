@@ -1,17 +1,20 @@
-<%@page import="com.kokkok.member.model.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.kokkok.member.model.MemberDto"%>
 <%
-String root = request.getContextPath();
-
-String id = (String)request.getAttribute("checkid");
-
+	String root = request.getContextPath();
+	String id = (String) request.getAttribute("checkid");
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="<%=root%>/resources/css/login.css">
+<link rel="stylesheet"
+	href="<%=root%>/resources/fonts/iconic/css/material-design-iconic-font.min.css">
+
+<link rel="stylesheet" href="<%=root%>/resources/css/style.css">
+
 <script type="text/javascript">
 function idcheck(){
 	if(document.getElementById("checkid").value.trim().length == 0) {
@@ -20,57 +23,83 @@ function idcheck(){
 	} else {
 		document.idform.action = "<%=root%>/member";
 		document.idform.submit();
+		}
 	}
-}
 
-function iduse(id){
-	opener.document.getElementById("userid").value = id;
-	self.close();
-}
+	function iduse(id) {
+		opener.document.getElementById("userid").value = id;
+		self.close();
+	}
 </script>
 </head>
+
 <body>
-<div class="box3" align="center">
-<form name="idform" method="get" action="" onsubmit="return false;">
-<input type="hidden" name="act" value="idcheck">
-<h3>아이디 중복 검사</h3>
-<hr>
-	<div class="div1" align="left">검색할 아이디를 입력하세요
-		<div class="div2">
-			<input type="text" name="checkid" id="checkid" onkeypress="javascript:if(event.keyCode == 13){ idcheck(); }">
-			<input type="button" value="검색" onclick="javascript:idcheck();">
-			<%
-				if(id == null){
-			%>
 
-			<%
-				}else{
-				int cnt = (int)request.getAttribute("idCnt");
-					if(cnt != 0){
-			%>
-						
-					<div class="div3">
-						 <%=id%>은 이미 존재하는 아이디 입니다.
+
+
+	<div>
+
+
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+			<form class="login100-form validate-form" name="idform" method="get"
+				action="" onsubmit="return false;">
+				<input type="hidden" name="act" value="idcheck">
+				<h2>아이디 중복 검사</h2>
+				<br>
+
+				<div class="row">
+
+					<div class="wrap-input100 validate-input m-b-23"
+						data-validate="Username is reauired" align="left"
+						style="width: 70%">
+						<span class="label-input100">아이디</span> <input class="input100"
+							type="text" id="checkid" name="checkid" placeholder="아이디를 입력해주세요" />
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+					<div class="idcheckDiv">
+						<input type="button" value="검색" class="btn btn-primary"
+							id="idsearchBtn" onclick="javascript:idcheck();">
 					</div>
 
-					<%	
-					}else{
 
-					%>
+				</div>
+				<br>
+
+				<%
+					if (id == null) {
+				%>
+					아이디를 입력해주세요!
+				<%
+					} else {
+						int cnt = (int) request.getAttribute("idCnt");
+						if (cnt != 0) {
+				%>
+
+				<div class="div3">
+					<%=id%>은 이미 존재하는 아이디 입니다.
+				</div>
+
+				<%
+					} else {
+				%>
+				<div class="row">
+					<div style="padding-right:20px">
+						<%=id%>는 사용할수 있습니다.<br>사용하시겠습니까?<br> 
+					</div>
 					<div>
-					<%=id%>는 사용할수 있습니다.<br>사용하시겠습니까?<br>
-					
-					<input type="button" value="사용" onclick="javascript:iduse('<%=id%>');">
+						<input type="button" value="사용하기" class="btn btn-primary" onclick="javascript:iduse('<%=id%>');">
 					</div>
-					<%
+				</div>
+				<%
+						}
 					}
-				}
-			%>
-		</div>
+				%>
 
+
+			</form>
+		</div>
 	</div>
 
-</form>
-</div>
+
 </body>
 </html>

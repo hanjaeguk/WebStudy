@@ -33,7 +33,7 @@ public class MemberController extends HttpServlet {
 			PageMove.redirect(request, response, path);
 
 		} else if ("mvmyinfo".equals(act)) {
-			path = "/member/myMenu/myInfo/list.jsp";
+			path = "/member/myMenu/myInfo/view.jsp";
 			PageMove.redirect(request, response, path);
 
 		} else if ("mvwritelist".equals(act)) {
@@ -98,9 +98,18 @@ public class MemberController extends HttpServlet {
 			request.setAttribute("idCnt", idCnt);
 			path =  "/member/join/idcheck.jsp";
 			PageMove.forward(request, response, path);
-		} else if ("".equals(act)) {
+		} else if ("mvmodify".equals(act)) {
+			path = "/member/myMenu/myInfo/modify.jsp";
+			PageMove.redirect(request, response, path);
 
-		} else {
+		} else if ("mvdelete".equals(act)) {
+			path = "/member/myMenu/myInfo/delete.jsp";
+			PageMove.redirect(request, response, path);
+
+		}else if ("".equals(act)) {
+
+		}
+		else {
 		}
 
 	}

@@ -51,6 +51,10 @@
 				document.getElementById("loginform").submit();
 			}
 		}
+		$('.modal').on('hidden.bs.modal', function (e) {
+		    console.log('modal close');
+		  $(this).find('form')[0].reset()
+		});
 </script>
 <!-- Modal -->
 <div class="modal fade" id="myLoginModal" role="dialog">
