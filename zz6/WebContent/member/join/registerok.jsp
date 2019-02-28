@@ -39,12 +39,12 @@ if(memberDto != null){
 								<span class="label-input100">
 								<%=memberDto.getName()%>님 반갑습니다.<br>로그인후 이용해주세요.
 								</span>
-							<br><br><br>
+							<br><br>
 							<div class="d-flex justify-content-center mb-3">
 						    	<div class="p-2">
-						    		<input type="button" value="로그인" class="btn btn-primary py-3 px-4" data-toggle="modal" data-target="#myLoginModal">
+						    		<input type="button" value="로그인" class="btn btn-primary" data-toggle="modal" data-target="#myLoginModal">
 						    		&nbsp;&nbsp;&nbsp;&nbsp;
-						    		<input type="button" value="메인화면" class="btn btn-primary py-3 px-4" onclick="location.href='${root}/index.jsp'">
+						    		<input type="button" value="메인화면" class="btn btn-primary" onclick="location.href='${root}/index.jsp'">
 						    	</div>			    
 							</div>				
 								

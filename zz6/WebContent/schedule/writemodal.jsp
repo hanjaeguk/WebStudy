@@ -10,7 +10,7 @@
 	
 
 		<!-- Modal content-->
-		<div class="modal-content" style="padding: 15 15 15 15">
+		<div class="modal-content" style="padding: 15px 15px 15px 15px">
 			<div>
 				<div align="center">
 					<h3>리뷰 작성</h3>

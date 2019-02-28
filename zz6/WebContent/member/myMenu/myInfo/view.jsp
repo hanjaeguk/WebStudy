@@ -34,12 +34,16 @@
 			<div class="container">
 		    <hr>    
 		    <div class="row"> 	
-			     <table>
+			     <table class="table table-borderless">
 				    <tbody>
 				      <tr>
-				        <td><span class="label-input100">ID123</span></td>
+				        <td>ID</td>
 				        <td>${userInfo.id}</td>	      
-				      </tr>	      	
+				      </tr>	  
+				      <tr>
+				        <td>이름</td>
+				        <td>${userInfo.name}</td>	      
+				      </tr>	    	
 				      <tr>
 				        <td>Email</td>
 				        <td>${userInfo.email}</td>		        
@@ -48,10 +52,7 @@
 				        <td>가입일</td>
 				        <td>${userInfo.joinDate}</td>	      
 				      </tr>
-				      <tr>
-				        <td>마지막 방문일</td>
-				        <td>2019.02.10</td>	      
-				      </tr>
+
 				    </tbody>
 			  		</table>	  	
 			</div>

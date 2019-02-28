@@ -39,8 +39,9 @@
 							<br><br>
 							<div class="d-flex justify-content-center mb-3">
 						    	<div class="p-2">
-						    		<input type="button" value="회원가입" class="btn btn-primary py-3 px-4" onclick="location.href='${root}/member/join/register.jsp'">
-						    		<input type="button" value="메인화면" class="btn btn-primary py-3 px-4" onclick="location.href='${root}/index.jsp'">
+						    		<input type="button" value="회원가입" class="btn btn-primary" onclick="location.href='${root}/member/join/register.jsp'">
+						    		&nbsp;&nbsp;&nbsp;&nbsp;
+						    		<input type="button" value="메인화면" class="btn btn-primary" onclick="location.href='${root}/index.jsp'">
 						    	</div>			    
 							</div>				
 								

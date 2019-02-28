@@ -15,7 +15,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">  
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">내가 찜한 목록</h1>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">내가 찜한 일정</h1>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
 <!-- 오른쪽 목록 -->
 		<div class="col-lg-9">
 <!-- 목록들 -->
-        	<p align="right">+더보기!</p>
+   
         	<div class="row">
         		<c:forEach var="i" begin="1" end="3">
 					<div class="col-md-4 ftco-animate destination">
@@ -58,32 +58,7 @@
 					</div>
         		</c:forEach>
           	</div>
-          	
-		   	<div>
-		   		<p align="right">+더보기</p>
-				<table border="1" style="width:100%;">
-					<thead>
-						<tr align="center">
-							<th>글번호</th>
-							<th>제목</th>
-							<th>글쓴이</th>
-							<th>등록날짜</th>
-							<th>찜한일자</th>
-							<th>null</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>제목입니다</td>
-							<td>홍길동</td>
-							<td>2019.01.02</td>
-							<td>2019.02.10</td>
-							<td>null</td>
-
-					</tbody>
-				</table>
-			</div>
+  
           	
 <!-- 목록들 END -->
 

@@ -38,12 +38,13 @@
           <li class="nav-item cta dropdown">
           	<a href="" class="dropdown-toggle nav-link" data-toggle="dropdown"><span>마이페이지</span></a>
    		        <ul class="dropdown-menu">
-		          <li><a href="${root}/member?act=mvmyinfo&bcode=0&pg=1&key=&word=" class="dropdown-item">내 정보 확인</a></li>
-		          <li><a href="${root}/member?act=mvwritelist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 작성한 일정</a></li>
-		          <li><a href="${root}/member?act=mvwishlist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 찜한 목록</a></li>
+		          <li><a href="${root}/member?act=mvmyinfo&bcode=0&pg=1&key=&word=" class="dropdown-item">내 정보 관리</a></li>
+		          <li><a href="${root}/member?act=mvmywritelist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 작성한 일정</a></li>
+		          <li><a href="${root}/member?act=mvmyschedulewishlist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 찜한 일정</a></li>
+		          <li><a href="${root}/member?act=mvmyreviewwishlist&bcode=0&pg=1&key=&word=" class="dropdown-item">내가 찜한 리뷰</a></li>
 
 	<c:if test="${userInfo.adminCode != 0}">
-			          <li><a href="${root}/members?act=mvmemberslist&bcode=0&pg=1&key=&word=" class="dropdown-item">회원관리</a></li>              
+			      <li><a href="${root}/members?act=mvmemberslist&bcode=0&pg=1&key=&word=" class="dropdown-item">회원관리</a></li>              
 	</c:if>
 	       
 		        </ul>

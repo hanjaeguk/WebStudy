@@ -39,12 +39,15 @@ public class MemberController extends HttpServlet {
 			path = "/member/myMenu/myInfo/view.jsp";
 			PageMove.redirect(request, response, path);
 
-		} else if ("mvwritelist".equals(act)) {
-			path = "/member/myMenu/myWrite/list.jsp";
+		} else if ("mvmywritelist".equals(act)) {
+			path = "/member/myMenu/myWrite/mywritelist.jsp";
 			PageMove.redirect(request, response, path);
 
-		} else if ("mvwishlist".equals(act)) {
-			path = "/member/myMenu/myWish/list.jsp";
+		} else if ("mvmyreviewwishlist".equals(act)) {
+			path = "/member/myMenu/myWish/reviewwishlist.jsp";
+			PageMove.redirect(request, response, path);
+		} else if ("mvmyschedulewishlist".equals(act)) {
+			path = "/member/myMenu/myWish/schedulewishlist.jsp";
 			PageMove.redirect(request, response, path);
 		} else if ("mvidcheck".equals(act)) {
 			path = "/member/join/idcheck.jsp";
@@ -63,7 +66,7 @@ public class MemberController extends HttpServlet {
 			if (cnt != 0) {
 				path = "/member/join/registerok.jsp";
 				request.setAttribute("registerInfo", memberDto);
-				PageMove.forward(request, response, path); // 占쎌젟癰귣�占쏙옙 揶쏉옙占쎌죬揶쏉옙占쎈튊占쎈┷占쎈빍繹먲옙 forward
+				PageMove.forward(request, response, path); // �뜝�럩�젧�솻洹ｏ옙�뜝�룞�삕 �뤆�룊�삕�뜝�럩二ф뤆�룊�삕�뜝�럥�뒍�뜝�럥�뵹�뜝�럥鍮띸뭐癒뀁삕 forward
 			} else {
 				path = "/member/join/registerfail.jsp";
 				PageMove.redirect(request, response, path);
@@ -73,9 +76,9 @@ public class MemberController extends HttpServlet {
 			String id = request.getParameter("loginid");
 			String pass = request.getParameter("loginpass");
 			MemberDto memberDto = memberService.login(id, pass);
-			if (memberDto != null) {// 濡쒓렇�씤 �맟�쓣�븣
+			if (memberDto != null) {// 嚥≪뮄�젃占쎌뵥 占쎈쭫占쎌뱽占쎈르
 				System.out.println(memberDto.toString());
-				////////////////////////// session �꽕�젙/////////////////////////////////////////
+				////////////////////////// session 占쎄퐬占쎌젟/////////////////////////////////////////
 				HttpSession session = request.getSession();
 				session.setAttribute("userInfo", memberDto);
 				path = "/index.jsp";
@@ -85,9 +88,9 @@ public class MemberController extends HttpServlet {
 			PageMove.redirect(request, response, path);
 		} else if ("logout".equals(act)) {
 			HttpSession session = request.getSession();
-//			session.setAttribute("userInfo", null); �븞醫뗭�諛⑸쾿
-//			session.removeAttribute("userInfo"); �씪諛섏쟻�씤諛⑸쾿
-			session.invalidate();// �꽭�뀡�븞�뿉 �엳�뒗嫄� �떦�떎 吏��썙�씪
+//			session.setAttribute("userInfo", null); 占쎈툧�넫�뿭占썼쳸�뫖苡�
+//			session.removeAttribute("userInfo"); 占쎌뵬獄쏆꼷�읅占쎌뵥獄쎻뫖苡�
+			session.invalidate();// 占쎄쉭占쎈�∽옙釉욑옙肉� 占쎌뿳占쎈뮉椰꾬옙 占쎈뼣占쎈뼄 筌욑옙占쎌뜖占쎌뵬
 			PageMove.redirect(request, response, path);
 			path = "/index.jsp";
 			

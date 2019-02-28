@@ -64,7 +64,7 @@
 					data-scrollax=" properties: { translateY: '70%' }">
 					<div class="container-login100"
 						style="padding-top: 0px; padding-bottom: 100px;">
-						<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+						<div class="wrap-login100" style="padding-left: 40px;padding-right: 40px;width: 500px;">
 							<form class="login100-form" name="registerform" id="registerform"
 								method="post" action="">
 								<input type="hidden" name="act" value="register"> <span
